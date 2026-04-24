@@ -1,33 +1,71 @@
-<section class="flex flex-col py-10 md:flex-row md: p-20 gap-y-10">
-<div class=" flex-1 grid grid-cols-2 gap-4">
-    <div class="text-center">
-<img src="favicon.svg" class="w-20 m-auto">
-<p class="mt-4">
-Montero Maintenance 
-</p>
-    </div>
+---
+// Sección de servicios - 4 servicios principales
+const services = [
+  {
+    icon: "/plant.svg",
+    title: "Lawn Care",
+    description: "lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    color: "bg-[#FAF0E6]"
+  },
+  {
+    icon: "/cleaning.svg",
+    title: "Cleaning Services",
+    description: "lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    color: "bg-[#FFFDD0]"
+  },
+  {
+    icon: "/snow.svg",
+    title: "Snow Removal",
+    description: "lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    color: "bg-[#FAF0E6]"
+  },
+  {
+    icon: "/plant.svg",
+    title: "Power Washing",
+    description: "lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    color: "bg-[#FFFDD0]"
+  }
+];
+---
 
-<div class="text-center">
-<img src="favicon.svg" class="w-20 m-auto">
-<p class="mt-4">
-Montero Maintenance 
-</p>
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Encabezado -->
+    <div class="text-center mb-12">
+      <span class="text-[#6B7280] font-semibold text-sm uppercase tracking-wide">What We Offer</span>
+      <h2 class="text-4xl md:text-5xl font-bold text-[#1A1A1A] mt-2">Our Services</h2>
+      <div class="w-20 h-0.5 bg-[#D2B48C] mx-auto mt-4"></div>
+      <p class="text-[#4B5563] mt-4 max-w-2xl mx-auto">
+        Year-round property maintenance solutions tailored to your needs
+      </p>
     </div>
-<div class="text-center">
-<img src="favicon.svg" class="w-20 m-auto">
-<p class="mt-4">
-Montero Maintenance 
-</p>
+    
+    <!-- Grid de servicios (4 columnas) -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {services.map((service) => (
+        <div class="text-center p-6 rounded-2xl transition-all duration-300 hover:shadow-xl bg-[#FAF0E6]">
+          {/* Cambiado: div por img */}
+          <img 
+            src={service.icon} 
+            alt={service.title} 
+            class="w-16 h-16 mx-auto mb-4"
+          />
+          <h3 class="text-2xl font-bold text-[#1A1A1A] mb-3">{service.title}</h3>
+          <p class="text-[#4B5563] leading-relaxed">{service.description}</p>
+          <a href="#contact" class="inline-block mt-4 text-[#1A1A1A] font-semibold text-sm hover:text-[#D2B48C] transition-colors">
+            More
+          </a>
+        </div>
+      ))}
     </div>
-<div class="text-center">
-<img src="favicon.svg" class="w-20 m-auto">
-Montero Maintenance 
-</p>
+    
+    <!-- Botón CTA adicional -->
+    <div class="text-center mt-12">
+      <a href="#contact" class="inline-block bg-[#1A1A1A] text-white px-8 py-3 rounded-lg hover:bg-[#333333] transition-colors font-semibold">
+        Get Free Estimate
+      </a>
     </div>
-</div>
-
-<div class="flex-1 ">
-    <h2 class="text-5xl font-bold flex-col gap-y-10 text-center">Lorem ipsum dolor sit.</h2>
-    <p class="text-3xl text-zinc-300">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate.</p>
-</div>
+    
+  </div>
 </section>

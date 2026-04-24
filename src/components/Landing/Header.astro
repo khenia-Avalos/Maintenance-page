@@ -1,0 +1,54 @@
+---
+// Header para Montero Maintenance LLC
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center py-4">
+      
+      <!-- Logo -->
+      <div class="flex items-center space-x-2">
+        
+<img src="/images/logoMontero.jpeg" alt="Montero Maintenance Logo" class="w-30 h-25 rounded-full object-cover">
+        <div>
+          <span class="text-xl font-bold text-[#1A1A1A]">Montero</span>
+          <span class="text-xl font-bold text-[#6B7280]">Maintenance</span>
+        </div>
+      </div>
+
+      <!-- Navegación Desktop -->
+      <nav class="hidden md:flex space-x-8">
+        <a href="#home" class="text-[#4B5563] hover:text-[#D2B48C] transition-colors">Home</a>
+        <a href="#about" class="text-[#4B5563] hover:text-[#D2B48C] transition-colors">About</a>
+        <a href="#services" class="text-[#4B5563] hover:text-[#D2B48C] transition-colors">Services</a>
+        <a href="#contact" class="text-[#4B5563] hover:text-[#D2B48C] transition-colors">Contact</a>
+      </nav>
+
+    
+
+      <!-- Botón menú móvil -->
+      <button id="menu-btn" class="md:hidden text-[#1A1A1A]">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Menú móvil -->
+    <div id="mobile-menu" class="hidden md:hidden pb-4 space-y-3">
+      <a href="#home" class="block py-2 text-[#4B5563] hover:text-[#D2B48C]">Home</a>
+      <a href="#about" class="block py-2 text-[#4B5563] hover:text-[#D2B48C]">About</a>
+      <a href="#services" class="block py-2 text-[#4B5563] hover:text-[#D2B48C]">Services</a>
+    
+    </div>
+  </div>
+</header>
+
+<script>
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  menuBtn?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+</script>

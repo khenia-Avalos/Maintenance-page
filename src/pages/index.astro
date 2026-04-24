@@ -2,6 +2,7 @@
 import Layout from "../Layouts/Layout.astro"
 
 //COMPONEnts
+import Header from "../components/Landing/Header.astro"
 import Hero from "../components/Landing/Hero.astro"
 import About from "../components/Landing/About.astro"
 import Projects from "../components/Landing/Projects.astro"
@@ -12,10 +13,10 @@ import More from "../components/Landing/More.astro"
 ---
 
 <Layout title="Home">
+    <Header/>
     <Hero />
-    <About />
+     <More />
     <Projects />
 
-    <More />
         <Features />
 </Layout>
