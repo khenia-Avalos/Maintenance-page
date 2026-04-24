@@ -1,0 +1,21 @@
+{
+"projects":
+[
+    {
+        "title": "Project 1",
+        "description": "Description of Project 1 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe in explicabo a aliquam, accusamus exercitationem deleniti ipsa nesciunt. Temporibus veritatis sunt et! Nobis quisquam deleniti atque fugit, non repellat in dolorum pariatur doloribus, ipsam reiciendis nihil aliquid aspernatur sed perferendis quas quis consequuntur, iusto aliquam veritatis rerum. Vero, commodi quisquam!",
+        "image": "images/logoMontero.jpeg"
+    },
+    {
+        "title": "Project 2",
+        "description": "Description of Project 1 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe in explicabo a aliquam, accusamus exercitationem deleniti ipsa nesciunt. Temporibus veritatis sunt et! Nobis quisquam deleniti atque fugit, non repellat in dolorum pariatur doloribus, ipsam reiciendis nihil aliquid aspernatur sed perferendis quas quis consequuntur, iusto aliquam veritatis rerum. Vero, commodi quisquam!",
+        "image": "images/logoMontero.jpeg"
+    },
+    {
+        "title": "Project 3",
+        "description": "Description of Project 1 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe in explicabo a aliquam, accusamus exercitationem deleniti ipsa nesciunt. Temporibus veritatis sunt et! Nobis quisquam deleniti atque fugit, non repellat in dolorum pariatur doloribus, ipsam reiciendis nihil aliquid aspernatur sed perferendis quas quis consequuntur, iusto aliquam veritatis rerum. Vero, commodi quisquam!",
+        "image": "images/logoMontero.jpeg"
+    }
+]
+
+}
