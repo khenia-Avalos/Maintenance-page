@@ -1,0 +1,50 @@
+---
+// Áreas de servicio - Montero Maintenance LLC
+const areas = [
+  { city: "Miami", state: "FL", zip: "33101" },
+  { city: "Orlando", state: "FL", zip: "32801" },
+  { city: "Tampa", state: "FL", zip: "33601" },
+  { city: "Jacksonville", state: "FL", zip: "32201" },
+  { city: "Fort Lauderdale", state: "FL", zip: "33301" },
+  { city: "West Palm Beach", state: "FL", zip: "33401" },
+  { city: "Naples", state: "FL", zip: "34101" },
+  { city: "Sarasota", state: "FL", zip: "34201" }
+];
+---
+
+<section id="service-areas" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Encabezado -->
+    <div class="text-center mb-12">
+      <span class="text-[#6B7280] font-semibold text-sm uppercase tracking-wide">Coverage Map</span>
+      <h2 class="text-4xl md:text-5xl font-bold text-[#1A1A1A] mt-2">Service Areas</h2>
+      <div class="w-20 h-0.5 bg-[#D2B48C] mx-auto mt-4"></div>
+    </div>
+    
+    <!-- Mapa de ubicación (estilo visual) -->
+    <div class="relative bg-[#FAF0E6] rounded-3xl p-8 mb-10 overflow-hidden">
+      <div class="relative z-10 text-center">
+        <p class="text-[#6B7280] font-medium mb-2">Currently Operating in</p>
+        <p class="text-3xl md:text-4xl font-bold text-[#1A1A1A]">Florida</p>
+       
+      </div>
+    </div>
+    
+    <!-- Lista de ciudades (estilo tags/píldoras) -->
+    <div class="flex flex-wrap justify-center gap-3">
+      {areas.map((area) => (
+        <div class="group">
+          <div class="bg-[#FAF0E6] hover:bg-[#D2B48C] px-5 py-2 rounded-full transition-all duration-300 cursor-default">
+            <span class="text-[#1A1A1A] group-hover:text-white font-medium text-sm">
+              {area.city}, {area.state}
+            </span>
+          </div>
+        </div>
+      ))}
+    </div>
+    
+   
+    
+  </div>
+</section>

@@ -1,11 +1,115 @@
 ---
-import Layout from "../Layouts/Layout.astro";
+import Layout from "../Layouts/Layout.astro"
+import Header from "../components/Landing/Header.astro"
+import Button from "../components/button.astro"
 ---
 
-<Layout title="About us ">
-    <h1>About page</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur possimus vel, reprehenderit nostrum minima sequi labore quis quibusdam dolorum, recusandae aliquid cumque unde adipisci natus? Dolore in suscipit enim incidunt!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio maiores ullam, id in autem cupiditate repudiandae quos excepturi dolores perferendis earum possimus exercitationem velit optio obcaecati reiciendis architecto. Repellat quaerat eius, iure inventore ipsam, molestias beatae cumque alias qui ab reprehenderit autem iste at totam quas corrupti labore tenetur id enim ipsa asperiores nisi consequatur quia est. Quaerat, dolore inventore? Voluptatem, alias porro. Voluptatum obcaecati nam aliquid unde cum fugit porro commodi architecto nobis ipsa magnam, itaque nisi laborum, maiores vero. Eius maxime quasi, illum quibusdam voluptatibus accusamus, vitae, amet dicta perferendis rerum voluptates quidem cupiditate? Unde laudantium perspiciatis laboriosam.
-
-    </p>
+<Layout title="About Us">
+    <Header />
+    
+    <!-- Sección Hero de About -->
+    <section class="pt-32 pb-16 bg-gradient-to-br from-white via-[#FAF0E6] to-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <span class="text-[#6B7280] font-semibold text-sm uppercase tracking-wide">About Us</span>
+          <h1 class="text-4xl md:text-6xl font-bold text-[#1A1A1A] mt-2">Montero Maintenance</h1>
+          <div class="w-20 h-0.5 bg-[#D2B48C] mx-auto mt-4 mb-6"></div>
+          <p class="text-xl text-[#4B5563] max-w-3xl mx-auto">
+            Excellence in property maintenance, year-round
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Sección Principal de About -->
+    <section class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-12 items-start">
+          
+          <!-- Texto -->
+          <div>
+            <p class="text-lg text-[#4B5563] mb-6 leading-relaxed">
+              At Montero Maintenance LLC we are dedicated to keeping your property looking its best year-round. 
+              Our comprehensive services include professional power washing to restore the beauty of your exterior 
+              surfaces, thorough cleaning for both residential and commercial spaces, expert lawn care to ensure 
+              your yard stays healthy and vibrant, and reliable snow removal to keep your property safe and 
+              accessible during the winter months.
+            </p>
+            
+            <p class="text-lg text-[#4B5563] mb-6 leading-relaxed">
+              With a commitment to excellence, attention to detail, and customer satisfaction, our experienced 
+              team is here to handle all your outdoor maintenance needs, so you can enjoy a clean, attractive, 
+              and well-maintained property in every season.
+            </p>
+          </div>
+          
+          <!-- Imagen -->
+          <div>
+            <img 
+              src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600" 
+              alt="Montero Maintenance team" 
+              class="rounded-2xl shadow-xl w-full"
+            />
+            
+            <div class="mt-6 bg-[#FAF0E6] rounded-2xl p-6 text-center">
+              <p class="text-[#4B5563] italic">
+                "Your trusted partner for year-round property maintenance"
+              </p>
+              <div class="w-12 h-0.5 bg-[#D2B48C] mx-auto my-3"></div>
+              <p class="text-sm text-[#6B7280]">- Montero Maintenance Team</p>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+    
+    <!-- Sección de valores / misión -->
+    <section class="py-16 bg-[#FAF0E6]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-3 gap-8">
+          
+          <div class="text-center">
+            <div class="w-16 h-16 bg-[#D2B48C] rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl"></span>
+            </div>
+            <h3 class="text-xl font-bold text-[#1A1A1A] mb-2">Our Mission</h3>
+            <p class="text-[#4B5563] text-sm">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, at?
+            </p>
+          </div>
+          
+          <div class="text-center">
+            <div class="w-16 h-16 bg-[#D2B48C] rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl"></span>
+            </div>
+            <h3 class="text-xl font-bold text-[#1A1A1A] mb-2">Our Vision</h3>
+            <p class="text-[#4B5563] text-sm">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam, delectus?
+            </p>
+          </div>
+          
+          <div class="text-center">
+            <div class="w-16 h-16 bg-[#D2B48C] rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl"></span>
+            </div>
+            <h3 class="text-xl font-bold text-[#1A1A1A] mb-2">Our Values</h3>
+            <p class="text-[#4B5563] text-sm">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, laboriosam.
+            </p>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+    
+  <!-- Call to Action -->
+<section class="py-16 bg-white">
+  <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl md:text-4xl font-bold text-[#1A1A1A] mb-4">Ready to work with us?</h2>
+    <p class="text-[#4B5563] mb-8">Contact us today for a free estimate</p>
+    
+    <!-- Así se llama el componente -->
+<Button href="#contact" text="Get Free Estimate" />  </div>
+</section>
 </Layout>

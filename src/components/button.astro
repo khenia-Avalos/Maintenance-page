@@ -1,0 +1,16 @@
+---
+// Versión con props explícitas
+const { href, text } = Astro.props;
+---
+
+{
+  href ? (
+    <a href={href} class="inline-block bg-[#1A1A1A] text-white px-8 py-3 rounded-lg hover:bg-[#333333] transition-colors font-semibold">
+      {text}
+    </a>
+  ) : (
+    <button class="inline-block bg-[#1A1A1A] text-white px-8 py-3 rounded-lg hover:bg-[#333333] transition-colors font-semibold">
+      {text}
+    </button>
+  )
+}
