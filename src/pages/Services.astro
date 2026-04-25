@@ -3,39 +3,7 @@ import Layout from "../Layouts/Layout.astro"
 import Header from "../components/Landing/Header.astro"
 import Button from "../components/button.astro"
 
-// Servicios principales
-const services = [
-  {
-    id: 1,
-    icon: "",
-    title: "Lawn Care",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet.",
-    features: ["", "", "", "", ""],
-   image: "/images/logoMontero.jpeg"
-  },
-  {
-    id: 2,
-    title: "Cleaning Services",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet.",
-    features: ["", "", "", "", ""],
- image: "/images/logoMontero.jpeg"
-  },
-  {
-    id: 3,
-  
-    title: "Snow Removal",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet.",
-    features: ["", "", "", "", ""],
-image: "/images/logoMontero.jpeg"  },
-  {
-    id: 4,
-
-    title: "Power Washing",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet.",
-    features: ["", "", "", "", ""],
-image: "/images/logoMontero.jpeg"
-  }
-];
+import servicesData from "../config/services.json"
 ---
 
 <Layout title="Our Services">
@@ -59,7 +27,7 @@ image: "/images/logoMontero.jpeg"
     <section class="py-16 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {services.map((service, index) => (
+        {servicesData.services.map((service, index) => (
           <div class={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-12 items-center mb-20 last:mb-0`}>
             
             <!-- Imagen -->
@@ -73,7 +41,6 @@ image: "/images/logoMontero.jpeg"
             
             <!-- Texto -->
             <div class="flex-1">
-              <div class="text-6xl mb-4">{service.icon}</div>
               <h2 class="text-3xl md:text-4xl font-bold text-[#1A1A1A] mb-4">{service.title}</h2>
               <p class="text-lg text-[#4B5563] mb-6 leading-relaxed">
                 {service.description}
