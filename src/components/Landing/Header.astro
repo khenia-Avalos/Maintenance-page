@@ -6,25 +6,26 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center py-4">
       
-      <!-- Logo -->
-      <div class="flex items-center space-x-2">
-        
-<img src="/images/logoMontero.jpeg" alt="Montero Maintenance Logo" class="w-30 h-25 rounded-full object-cover">
+      <!-- Logo y nombre - Enlace a home -->
+      <a href="/" class="flex items-center space-x-2 group cursor-pointer">
+        <img 
+          src="/images/logoMontero.jpeg" 
+          alt="Montero Maintenance Logo" 
+          class="w-25 h-25 rounded-full object-cover group-hover:opacity-80 transition-opacity"
+        />
         <div>
           <span class="text-xl font-bold text-[#1A1A1A]">Montero</span>
           <span class="text-xl font-bold text-[#6B7280]">Maintenance</span>
         </div>
-      </div>
+      </a>
 
       <!-- Navegación Desktop -->
       <nav class="hidden md:flex space-x-8">
-        <a href="#home" class="text-[#4B5563] hover:text-[#D2B48C] transition-colors">Home</a>
-        <a href="#about" class="text-[#4B5563] hover:text-[#D2B48C] transition-colors">About</a>
-        <a href="#services" class="text-[#4B5563] hover:text-[#D2B48C] transition-colors">Services</a>
+        <a href="/" class="text-[#4B5563] hover:text-[#D2B48C] transition-colors">Home</a>
+        <a href="/about" class="text-[#4B5563] hover:text-[#D2B48C] transition-colors">About</a>
+        <a href="/Services" class="text-[#4B5563] hover:text-[#D2B48C] transition-colors">Services</a>
         <a href="#contact" class="text-[#4B5563] hover:text-[#D2B48C] transition-colors">Contact</a>
       </nav>
-
-    
 
       <!-- Botón menú móvil -->
       <button id="menu-btn" class="md:hidden text-[#1A1A1A]">
@@ -36,10 +37,10 @@
 
     <!-- Menú móvil -->
     <div id="mobile-menu" class="hidden md:hidden pb-4 space-y-3">
-      <a href="#home" class="block py-2 text-[#4B5563] hover:text-[#D2B48C]">Home</a>
-      <a href="#about" class="block py-2 text-[#4B5563] hover:text-[#D2B48C]">About</a>
+      <a href="/" class="block py-2 text-[#4B5563] hover:text-[#D2B48C]">Home</a>
+      <a href="/about" class="block py-2 text-[#4B5563] hover:text-[#D2B48C]">About</a>
       <a href="#services" class="block py-2 text-[#4B5563] hover:text-[#D2B48C]">Services</a>
-    
+      <a href="#contact" class="block py-2 text-[#4B5563] hover:text-[#D2B48C]">Contact</a>
     </div>
   </div>
 </header>
