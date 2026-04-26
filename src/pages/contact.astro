@@ -26,76 +26,74 @@ import Button from "../components/button.astro"
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid md:grid-cols-2 gap-12">
           
-          <!-- Formulario de contacto -->
-          <div>
-            <h2 class="text-2xl md:text-3xl font-bold text-[#1A1A1A] mb-6">Send Us a Message</h2>
-        
-            <form 
-  action="https://formspree.io/f/mvzdyjjq"
-  method="POST"
-  class="space-y-4"
->
-              <div>
-                <label class="block text-[#1A1A1A] font-medium mb-2">Name</label>
-                <input 
-                  type="text" 
-                    name="name"
+    <!-- Formulario de contacto -->
+<div>
+  <h2 class="text-2xl md:text-3xl font-bold text-[#1A1A1A] mb-6">Send Us a Message</h2>
 
-                  placeholder="Lorem ipsum dolor"
-                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#D2B48C] focus:outline-none transition-colors"
-                />
-              </div>
-              
-              <div>
-                <label class="block text-[#1A1A1A] font-medium mb-2">Email</label>
-                <input 
-                  type="email" 
-                  name="email"
-                  placeholder="Lorem ipsum dolor"
-                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#D2B48C] focus:outline-none transition-colors"
-                />
-              </div>
-              
-              <div>
-                <label class="block text-[#1A1A1A] font-medium mb-2">Phone</label>
-                <input 
-                  type="tel" 
-                  name="phone"
-                  placeholder="Lorem ipsum dolor"
-                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#D2B48C] focus:outline-none transition-colors"
-                />
-              </div>
-              
-                 
-              <!-- Servicio -->
-              <div>
-                <label class="block text-[#1A1A1A] font-medium mb-2">Service Needed *</label>
-                <select 
-                  name="service"
-                  required
-                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#D2B48C] focus:outline-none transition-colors"
-                >
-                  <option value="">Select a service</option>
-                  <option value="Lawn Care">🌿 Lawn Care</option>
-                  <option value="Cleaning Services">🧼 Cleaning Services</option>
-                  <option value="Snow Removal">❄️ Snow Removal</option>
-                  <option value="Power Washing">💧 Power Washing</option>
-                </select>
-              </div>
-              
-              <div>
-                <label class="block text-[#1A1A1A] font-medium mb-2">Message</label>
-                <textarea 
-                  rows="5" 
-                  name="message"
-                  placeholder="Lorem ipsum dolor sit amet..."
-                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#D2B48C] focus:outline-none transition-colors"
-                ></textarea>
-              </div>
-              
-              <Button type="submit" text="Send Message" />
-            </form>
-          </div>
+  <form 
+    action="https://formspree.io/f/mvzdyjjq"
+    method="POST"
+    class="space-y-4"
+  >
+    <div>
+      <label class="block text-[#1A1A1A] font-medium mb-2">Name</label>
+      <input 
+        type="text" 
+        name="name"
+        placeholder="Lorem ipsum dolor"
+        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#D2B48C] focus:outline-none transition-colors text-[#1A1A1A] bg-white"
+      />
+    </div>
+    
+    <div>
+      <label class="block text-[#1A1A1A] font-medium mb-2">Email</label>
+      <input 
+        type="email" 
+        name="email"
+        placeholder="Lorem ipsum dolor"
+        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#D2B48C] focus:outline-none transition-colors text-[#1A1A1A] bg-white"
+      />
+    </div>
+    
+    <div>
+      <label class="block text-[#1A1A1A] font-medium mb-2">Phone</label>
+      <input 
+        type="tel" 
+        name="phone"
+        placeholder="Lorem ipsum dolor"
+        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#D2B48C] focus:outline-none transition-colors text-[#1A1A1A] bg-white"
+      />
+    </div>
+    
+    <!-- Servicio -->
+    <div>
+      <label class="block text-[#1A1A1A] font-medium mb-2">Service Needed *</label>
+      <select 
+        name="service"
+        required
+        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#D2B48C] focus:outline-none transition-colors text-[#1A1A1A] bg-white"
+      >
+        <option value="">Select a service</option>
+        <option value="Lawn Care">🌿 Lawn Care</option>
+        <option value="Cleaning Services">🧼 Cleaning Services</option>
+        <option value="Snow Removal">❄️ Snow Removal</option>
+        <option value="Power Washing">💧 Power Washing</option>
+      </select>
+    </div>
+    
+    <div>
+      <label class="block text-[#1A1A1A] font-medium mb-2">Message</label>
+      <textarea 
+        rows="5" 
+        name="message"
+        placeholder="Lorem ipsum dolor sit amet..."
+        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#D2B48C] focus:outline-none transition-colors text-[#1A1A1A] bg-white"
+      ></textarea>
+    </div>
+    
+    <Button type="submit" text="Send Message" />
+  </form>
+</div>
           
           <!-- Información de contacto -->
           <div>
