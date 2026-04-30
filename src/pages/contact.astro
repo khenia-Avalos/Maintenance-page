@@ -30,12 +30,8 @@ import Button from "../components/button.astro"
           <div>
             <h2 class="text-2xl md:text-3xl font-bold text-[#1A1A1A] mb-6">Send Us a Message</h2>
 
-         <form 
-  action="/send-mail.php"
-  method="POST"
-  class="space-y-4"
->
-              <!-- Tipo de solicitud (PRIMERO, para que decida) -->
+            <form action="/send-mail.php" method="POST" class="space-y-4">
+              <!-- Tipo de solicitud -->
               <div>
                 <label class="block text-[#1A1A1A] font-medium mb-2">¿Qué necesitas? *</label>
                 <select 
@@ -44,12 +40,12 @@ import Button from "../components/button.astro"
                   required
                   class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#D2B48C] focus:outline-none transition-colors text-[#1A1A1A] bg-white"
                 >
-                  <option value="budget"> Solicitar presupuesto gratuito</option>
-                  <option value="schedule">Reservar servicio (ya tengo presupuesto)</option>
+                  <option value="budget">📋 Solicitar presupuesto gratuito</option>
+                  <option value="schedule">📅 Reservar servicio (ya tengo presupuesto)</option>
                 </select>
               </div>
 
-              <!-- Campos básicos (siempre visibles) -->
+              <!-- Campos básicos -->
               <div>
                 <label class="block text-[#1A1A1A] font-medium mb-2">Full Name *</label>
                 <input 
@@ -91,10 +87,10 @@ import Button from "../components/button.astro"
                   class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#D2B48C] focus:outline-none transition-colors text-[#1A1A1A] bg-white"
                 >
                   <option value="">Select a service</option>
-                  <option value="Lawn Care"> Lawn Care</option>
-                  <option value="Cleaning Services"> Cleaning Services</option>
-                  <option value="Snow Removal"> Snow Removal</option>
-                  <option value="Power Washing"> Power Washing</option>
+                  <option value="Lawn Care">🌿 Lawn Care</option>
+                  <option value="Cleaning Services">🧼 Cleaning Services</option>
+                  <option value="Snow Removal">❄️ Snow Removal</option>
+                  <option value="Power Washing">💧 Power Washing</option>
                 </select>
               </div>
               
@@ -107,8 +103,6 @@ import Button from "../components/button.astro"
                   class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#D2B48C] focus:outline-none transition-colors text-[#1A1A1A] bg-white"
                 />
               </div>
-              
-        
               
               <!-- Mensaje -->
               <div>
@@ -131,7 +125,6 @@ import Button from "../components/button.astro"
             <h2 class="text-2xl md:text-3xl font-bold text-[#1A1A1A] mb-6">Contact Information</h2>
             
             <div class="space-y-6">
-           
               <!-- Teléfono -->
               <div class="flex items-start gap-4">
                 <div class="w-12 h-12 bg-[#FAF0E6] rounded-full flex items-center justify-center flex-shrink-0">
@@ -193,69 +186,69 @@ import Button from "../components/button.astro"
     
 </Layout>
 
-<!-- Script para mostrar/ocultar campos según la selección -->
+<!-- Script para mostrar/ocultar campos según la selección y manejar el envío -->
 <script>
-  const requestType = document.getElementById('request_type');
-  const dateField = document.getElementById('date_field');
-  const quoteCodeField = document.getElementById('quote_code_field');
+  const requestType = document.getElementById('request_type') as HTMLSelectElement | null;
+  const dateField = document.getElementById('date_field') as HTMLDivElement | null;
 
-  function toggleFields() {
+  function toggleFields(): void {
     if (requestType && requestType.value === 'schedule') {
       if (dateField) dateField.style.display = 'block';
-      if (quoteCodeField) quoteCodeField.style.display = 'block';
     } else {
       if (dateField) dateField.style.display = 'none';
-      if (quoteCodeField) quoteCodeField.style.display = 'none';
     }
   }
 
   if (requestType) {
     requestType.addEventListener('change', toggleFields);
-    toggleFields(); // Ejecutar al cargar
+    toggleFields();
   }
 
+  const form = document.querySelector('form') as HTMLFormElement | null;
 
+  if (form) {
+    form.addEventListener('submit', async (e: Event) => {
+      e.preventDefault();
 
-
-
-  const form = document.querySelector('form');
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    // Mostrar un mensaje de "enviando..."
-    const submitButton = form.querySelector('button[type="submit"]');
-    const originalButtonText = submitButton.textContent;
-    submitButton.textContent = 'Enviando...';
-    submitButton.disabled = true;
-
-    const formData = new FormData(form);
-
-    try {
-      const response = await fetch('/send-mail.php', {
-        method: 'POST',
-        body: formData
-      });
-
-      const result = await response.json();
-
-      if (response.ok && result.success) {
-        alert(result.message);
-        form.reset();
-        // Resetear campos dinámicos
-        if (typeof toggleFields === 'function') {
-          toggleFields();
-        }
-      } else {
-        alert(result.error || 'Hubo un error al enviar. Inténtalo de nuevo.');
+      const submitButton = (form.querySelector('button[type="submit"]') || form.querySelector('button')) as HTMLButtonElement | null;
+      
+      if (!submitButton) {
+        console.error('Botón de enviar no encontrado');
+        alert('Error: No se pudo procesar el formulario');
+        return;
       }
-    } catch (error) {
-      console.error('Error:', error);
-      alert('Error de conexión. Por favor verifica tu conexión a internet.');
-    } finally {
-      submitButton.textContent = originalButtonText;
-      submitButton.disabled = false;
-    }
-  });
 
+      const originalButtonText = submitButton.textContent || 'Send Message';
+      submitButton.textContent = 'Enviando...';
+      submitButton.disabled = true;
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch('/send-mail.php', {
+          method: 'POST',
+          body: formData
+        });
+
+        const result = await response.json() as { success?: boolean; message?: string; error?: string };
+
+        if (response.ok && result.success) {
+          alert(result.message);
+          form.reset();
+          if (requestType) requestType.value = 'budget';
+          toggleFields();
+        } else {
+          alert(result.error || 'Hubo un error al enviar. Inténtalo de nuevo.');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('Error de conexión. Por favor verifica tu conexión a internet.');
+      } finally {
+        submitButton.textContent = originalButtonText;
+        submitButton.disabled = false;
+      }
+    });
+  } else {
+    console.error('Formulario no encontrado');
+  }
 </script>
