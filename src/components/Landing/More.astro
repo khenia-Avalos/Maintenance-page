@@ -3,76 +3,70 @@
 const services = [
   {
     icon: "/plant.svg",
-    title: "🔥 LAWN CARE 🔥",
-    description: "✨ ¡CAMBIO DRASTICO! Este texto es NUEVO y diferente ✨",
-    color: "bg-[#FF6B6B]",
-    hoverColor: "hover:bg-[#FF5252]",
-    textColor: "text-white"
+    title: "Lawn Care",
+    description: "lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    color: "bg-[#D8F5D8]",
+    hoverColor: "hover:bg-[#C5E8C5]"
   },
   {
     icon: "/cleaning.svg",
-    title: "💎 CLEANING SERVICES 💎",
-    description: "⚡ OTRO CAMBIO GRANDE - Servicios de limpieza profesional ⚡",
-    color: "bg-[#4ECDC4]",
-    hoverColor: "hover:bg-[#3DBEB5]",
-    textColor: "text-white"
+    title: "Cleaning Services",
+    description: "lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    color: "bg-[#FDE2E2]",
+    hoverColor: "hover:bg-[#FAD0D0]"
   },
   {
     icon: "/snow.svg",
-    title: "❄️ SNOW REMOVAL ❄️",
-    description: "🌟 CAMBIO NOTABLE - Remoción de nieve 24/7 🌟",
-    color: "bg-[#45B7D1]",
-    hoverColor: "hover:bg-[#3BA3BB]",
-    textColor: "text-white"
+    title: "Snow Removal",
+    description: "lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    color: "bg-[#E8E8E8]",
+    hoverColor: "hover:bg-[#D8D8D8]"
   },
   {
     icon: "/plant.svg",
-    title: "💧 POWER WASHING 💧",
-    description: "🎯 CAMBIO IMPORTANTE - Lavado a presión profesional 🎯",
-    color: "bg-[#F9CA24]",
-    hoverColor: "hover:bg-[#F6C017]",
-    textColor: "text-gray-900"
+    title: "Power Washing",
+    description: "lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    color: "bg-[#D8EEF5]",
+    hoverColor: "hover:bg-[#C5E2ED]"
   }
 ];
 ---
 
-<section class="py-20 bg-black">
+<section class="py-20 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    <!-- Encabezado con cambios drásticos -->
+    <!-- Encabezado -->
     <div class="text-center mb-12">
-      <span class="text-[#FF6B6B] font-bold text-lg uppercase tracking-wider">🚨 CAMBIO DRASTICO ACTIVADO 🚨</span>
-      <h2 class="text-5xl md:text-6xl font-bold text-white mt-4">🔥 THIS IS A TEST 🔥</h2>
-      <div class="w-40 h-1 bg-[#FF6B6B] mx-auto mt-4"></div>
-      <p class="text-[#4ECDC4] mt-6 max-w-2xl mx-auto text-lg font-bold">
-        ⚡ SI VES ESTE TEXTO, LOS CAMBIOS FUNCIONARON ⚡
+      <span class="text-[#6B7280] font-semibold text-sm uppercase tracking-wide">What We Offer</span>
+      <h2 class="text-4xl md:text-5xl font-bold text-[#1A1A1A] mt-2">Our Services</h2>
+      <div class="w-20 h-0.5 bg-[#d91515] mx-auto mt-4"></div>
+      <p class="text-[#4B5563] mt-4 max-w-2xl mx-auto">
+        Year-round property maintenance solutions tailored to your needs
       </p>
     </div>
     
-    <!-- Grid de servicios con borde blanco para destacar -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-      {services.map((service, index) => (
-        <div class={`text-center p-8 rounded-3xl transition-all duration-300 hover:scale-105 hover:shadow-2xl ${service.color} ${service.hoverColor} border-4 border-white`}>
-          <div class="w-24 h-24 bg-white rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-            <img 
-              src={service.icon} 
-              alt={service.title} 
-              class="w-16 h-16"
-            />
-          </div>
-          <h3 class={`text-2xl font-extrabold mb-3 ${service.textColor}`}>{service.title}</h3>
-          <p class={`${service.textColor} opacity-95 leading-relaxed font-medium`}>{service.description}</p>
-          <a href="#contact" class={`inline-block mt-6 px-6 py-2 rounded-full font-bold transition-all duration-300 ${service.textColor === 'text-white' ? 'bg-black hover:bg-gray-800' : 'bg-black hover:bg-gray-800'} text-white`}>
-            🔥 CLICK AQUÍ 🔥
+    <!-- Grid de servicios (4 columnas) -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {services.map((service) => (
+        <div class={`text-center p-6 rounded-2xl transition-all duration-300 hover:shadow-xl ${service.color} ${service.hoverColor}`}>
+          <img 
+            src={service.icon} 
+            alt={service.title} 
+            class="w-16 h-16 mx-auto mb-4"
+          />
+          <h3 class="text-2xl font-bold text-[#1A1A1A] mb-3">{service.title}</h3>
+          <p class="text-[#4B5563] leading-relaxed">{service.description}</p>
+          <a href="#contact" class="inline-block mt-4 text-[#1A1A1A] font-semibold text-sm hover:text-[#D2B48C] transition-colors">
+            More
           </a>
         </div>
       ))}
     </div>
     
-    <!-- Botón CTA con cambio drástico -->
-    <div class="text-center mt-16">
-      <a href="#contact" class="inline-block bg-[#FF6B6B] text-white px-10 py-4 rounded-full hover:bg-[#FF5252] transition-all duration-300 font-bold text-lg shadow-xl hover:scale-105">
-        🚨 GET FREE ESTIMATE - CAMBIO DRASTICOooooooooooo 🚨
+    <!-- Botón CTA adicional -->
+    <div class="text-center mt-12">
+      <a href="#contact" class="inline-block bg-[#1A1A1A] text-white px-8 py-3 rounded-lg hover:bg-[#333333] transition-colors font-semibold">
+        Get Free Estimate
       </a>
     </div>
     
