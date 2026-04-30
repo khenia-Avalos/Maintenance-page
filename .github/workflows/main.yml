@@ -1,4 +1,4 @@
-name: Deploy via SFTP
+name: Deploy to Hostinger
 
 on:
   push:
@@ -23,9 +23,9 @@ jobs:
       - name: Build Astro project
         run: npm run build
 
-      - name: Install LFTP (SFTP client)
-        run: sudo apt-get update && sudo apt-get install -y lftp
+      - name: Install sshpass (to use password)
+        run: sudo apt-get update && sudo apt-get install -y sshpass
 
-      - name: Deploy via SFTP
+      - name: Deploy with rsync using password
         run: |
-          lftp -c "set sftp:auto-confirm yes; open -u ${{ secrets.SSH_USER }},${{ secrets.SSH_PASSWORD }} sftp://${{ secrets.SSH_HOST }}:${{ secrets.SSH_PORT }}; mirror -R ./dist /home/u669089836/domains/monteromaintenance.com/public_html/ --delete --verbose"
+          sshpass -p "${{ secrets.SSH_PASSWORD }}" rsync -avzr --delete -e "ssh -p ${{ secrets.SSH_PORT }} -o StrictHostKeyChecking=no" ./dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/u669089836/domains/monteromaintenance.com/public_html/
