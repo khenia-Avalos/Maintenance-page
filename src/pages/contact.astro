@@ -30,11 +30,11 @@ import Button from "../components/button.astro"
           <div>
             <h2 class="text-2xl md:text-3xl font-bold text-[#1A1A1A] mb-6">Send Us a Message</h2>
 
-            <form 
-              action="https://formspree.io/f/mvzdyjjq"
-              method="POST"
-              class="space-y-4"
-            >
+         <form 
+  action="/send-mail.php"
+  method="POST"
+  class="space-y-4"
+>
               <!-- Tipo de solicitud (PRIMERO, para que decida) -->
               <div>
                 <label class="block text-[#1A1A1A] font-medium mb-2">¿Qué necesitas? *</label>
@@ -223,4 +223,49 @@ import Button from "../components/button.astro"
     requestType.addEventListener('change', toggleFields);
     toggleFields(); // Ejecutar al cargar
   }
+
+
+
+
+
+  const form = document.querySelector('form');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Mostrar un mensaje de "enviando..."
+    const submitButton = form.querySelector('button[type="submit"]');
+    const originalButtonText = submitButton.textContent;
+    submitButton.textContent = 'Enviando...';
+    submitButton.disabled = true;
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch('/send-mail.php', {
+        method: 'POST',
+        body: formData
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        alert(result.message);
+        form.reset();
+        // Resetear campos dinámicos
+        if (typeof toggleFields === 'function') {
+          toggleFields();
+        }
+      } else {
+        alert(result.error || 'Hubo un error al enviar. Inténtalo de nuevo.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Error de conexión. Por favor verifica tu conexión a internet.');
+    } finally {
+      submitButton.textContent = originalButtonText;
+      submitButton.disabled = false;
+    }
+  });
+
 </script>
