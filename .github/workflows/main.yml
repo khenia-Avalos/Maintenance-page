@@ -1,37 +1,35 @@
-name: Deploy to Hostinger
- 
+name: Deploy Astro a Hostinger
+
 on:
   push:
     branches: [ master ]
- 
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
- 
+
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
- 
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22'
- 
+          node-version: '20'
+
       - name: Install dependencies
         run: npm install
- 
+
       - name: Build Astro project
         run: npm run build
- 
-      - name: Deploy to Hostinger via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+
+      - name: Deploy with rsync via SSH
+        uses: burnett01/rsync-deployments@7.0.1
         with:
-          server: ${{ secrets.HOSTINGER_IP }}
-          username: ${{ secrets.HOSTINGER_USER }}
-          password: ${{ secrets.HOSTINGER_PASS }}
-          protocol: ftp          # Cambia a "ftps" para conexión cifrada si tu hosting lo soporta
-          port: 21
-          local-dir: ./dist/
-          server-dir: /home/u669089836/domains/monteromaintenance.com/public_html/
-          dangerous-clean-slate: true   # Borra todo en server-dir antes de subir. Quitar si tienes archivos que preservar.
- 
+          switches: -avzr --delete
+          path: dist/
+          remote_path: /home/u669089836/domains/monteromaintenance.com/public_html/
+          remote_host: ${{ secrets.SSH_HOST }}
+          remote_port: ${{ secrets.SSH_PORT }}
+          remote_user: ${{ secrets.SSH_USER }}
+          remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
