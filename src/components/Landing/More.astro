@@ -5,25 +5,29 @@ const services = [
     icon: "/plant.svg",
     title: "Lawn Care",
     description: "lorem ipsum dolor sit amet consectetur adipisicing elit.",
-    color: "bg-[#FAF0E6]"
+    color: "bg-[#D8F5D8]",
+    hoverColor: "hover:bg-[#C5E8C5]"
   },
   {
     icon: "/cleaning.svg",
     title: "Cleaning Services",
     description: "lorem ipsum dolor sit amet consectetur adipisicing elit.",
-    color: "bg-[#FFFDD0]"
+    color: "bg-[#FDE2E2]",
+    hoverColor: "hover:bg-[#FAD0D0]"
   },
   {
     icon: "/snow.svg",
     title: "Snow Removal",
     description: "lorem ipsum dolor sit amet consectetur adipisicing elit.",
-    color: "bg-[#FAF0E6]"
+    color: "bg-[#E8E8E8]",
+    hoverColor: "hover:bg-[#D8D8D8]"
   },
   {
     icon: "/plant.svg",
     title: "Power Washing",
     description: "lorem ipsum dolor sit amet consectetur adipisicing elit.",
-    color: "bg-[#FFFDD0]"
+    color: "bg-[#D8EEF5]",
+    hoverColor: "hover:bg-[#C5E2ED]"
   }
 ];
 ---
@@ -44,8 +48,7 @@ const services = [
     <!-- Grid de servicios (4 columnas) -->
     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
       {services.map((service) => (
-        <div class="text-center p-6 rounded-2xl transition-all duration-300 hover:shadow-xl bg-[#FAF0E6]">
-          {/* Cambiado: div por img */}
+        <div class={`text-center p-6 rounded-2xl transition-all duration-300 hover:shadow-xl ${service.color} ${service.hoverColor}`}>
           <img 
             src={service.icon} 
             alt={service.title} 
