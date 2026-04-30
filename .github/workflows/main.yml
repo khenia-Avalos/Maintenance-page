@@ -25,12 +25,14 @@ jobs:
       - name: Build Astro project
         run: npm run build
 
-      - name: Deploy to Hostinger via FTP
+      - name: Deploy to Hostinger via SFTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.HOSTINGER_IP }}
           username: ${{ secrets.HOSTINGER_USER }}
           password: ${{ secrets.HOSTINGER_PASS }}
+          port: 22
+          protocol: sftp
           local-dir: ./dist/
           server-dir: ${{ secrets.HOSTINGER_PATH }}
           dangerous-clean-slate: true
