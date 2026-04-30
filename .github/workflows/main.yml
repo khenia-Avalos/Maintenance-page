@@ -1,4 +1,4 @@
-name: Deploy Astro a Hostinger
+name: Deploy to Hostinger
 
 on:
   push:
@@ -7,11 +7,9 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Setup Node.js
@@ -20,19 +18,14 @@ jobs:
           node-version: '22'
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: Build Astro project
         run: npm run build
 
-      - name: Install rsync
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y rsync
+      - name: Install sshpass (to use password)
+        run: sudo apt-get update && sudo apt-get install -y sshpass
 
-      - name: Deploy with rsync via SSH
+      - name: Deploy with rsync using password
         run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          rsync -avzr --delete -e "ssh -p ${{ secrets.SSH_PORT }} -o StrictHostKeyChecking=no" ./dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/u669089836/domains/monteromaintenance.com/public_html/
+          sshpass -p "${{ secrets.SSH_PASSWORD }}" rsync -avzr --delete -e "ssh -p ${{ secrets.SSH_PORT }} -o StrictHostKeyChecking=no" ./dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/u669089836/domains/monteromaintenance.com/public_html/
