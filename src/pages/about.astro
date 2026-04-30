@@ -63,38 +63,53 @@ import Button from "../components/button.astro"
       </div>
     </section>
     
-    <!-- Sección de valores / misión -->
+    <!-- Sección de valores / misión con iconos -->
     <section class="py-16 bg-[#FAF0E6]">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid md:grid-cols-3 gap-8">
           
+          <!-- Misión -->
           <div class="text-center">
             <div class="w-16 h-16 bg-[#D2B48C] rounded-full flex items-center justify-center mx-auto mb-4">
-              <span class="text-2xl"></span>
+              <img 
+              src="/images/focus.png" 
+                alt="Mission icon" 
+                class="w-8 h-8"
+              />
             </div>
             <h3 class="text-xl font-bold text-[#1A1A1A] mb-2">Our Mission</h3>
             <p class="text-[#4B5563] text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, at?
+              Our mission is to offer a diverse range of services to meet your needs, deliver top-quality service, and maintain affordable pricing.
             </p>
           </div>
           
+          <!-- Visión -->
           <div class="text-center">
             <div class="w-16 h-16 bg-[#D2B48C] rounded-full flex items-center justify-center mx-auto mb-4">
-              <span class="text-2xl"></span>
+              <img 
+                src="/images/vision.png" 
+                alt="Vision icon" 
+                class="w-8 h-8"
+              />
             </div>
             <h3 class="text-xl font-bold text-[#1A1A1A] mb-2">Our Vision</h3>
             <p class="text-[#4B5563] text-sm">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam, delectus?
+              Our vision is to enhance the experience we provide to our customers. We aim for this business to grow alongside our valued customers. We welcome feedback to help us improve the overall experience and to introduce new services.
             </p>
           </div>
           
+          <!-- Valores -->
           <div class="text-center">
             <div class="w-16 h-16 bg-[#D2B48C] rounded-full flex items-center justify-center mx-auto mb-4">
-              <span class="text-2xl"></span>
+              <img 
+                src="/images/values.png" 
+                alt="Values icon" 
+                class="w-8 h-8"
+              />
             </div>
             <h3 class="text-xl font-bold text-[#1A1A1A] mb-2">Our Values</h3>
             <p class="text-[#4B5563] text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, laboriosam.
+              Values form the foundation of our company. We consistently show respect for our customers and honor their time and expectations. Your trust in us is greatly appreciated; we will care for your home as if it were our own.
             </p>
           </div>
           
@@ -102,13 +117,13 @@ import Button from "../components/button.astro"
       </div>
     </section>
     
-  <!-- Call to Action -->
-<section class="py-16 bg-white">
-  <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-    <h2 class="text-3xl md:text-4xl font-bold text-[#1A1A1A] mb-4">Ready to work with us?</h2>
-    <p class="text-[#4B5563] mb-8">Contact us today for a free estimate</p>
+    <!-- Call to Action -->
+    <section class="py-16 bg-white">
+      <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl md:text-4xl font-bold text-[#1A1A1A] mb-4">Ready to work with us?</h2>
+        <p class="text-[#4B5563] mb-8">Contact us today for a free estimate</p>
+        <Button href="#contact" text="Get Free Estimate" />
+      </div>
+    </section>
     
-    <!-- Así se llama el componente -->
-<Button href="#contact" text="Get Free Estimate" />  </div>
-</section>
 </Layout>
