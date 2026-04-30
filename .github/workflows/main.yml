@@ -1,34 +1,37 @@
 name: Deploy to Hostinger
-
+ 
 on:
   push:
     branches: [ master ]
-
+ 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    
+ 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
+ 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-
+ 
       - name: Install dependencies
         run: npm install
-
+ 
       - name: Build Astro project
         run: npm run build
-
+ 
       - name: Deploy to Hostinger via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.HOSTINGER_IP }}
           username: ${{ secrets.HOSTINGER_USER }}
           password: ${{ secrets.HOSTINGER_PASS }}
+          protocol: ftp          # Cambia a "ftps" para conexión cifrada si tu hosting lo soporta
+          port: 21
           local-dir: ./dist/
-          server-dir: ${{ secrets.HOSTINGER_PATH }}
-          dangerous-clean-slate: true
+          server-dir: /home/u669089836/domains/monteromaintenance.com/public_html/
+          dangerous-clean-slate: true   # Borra todo en server-dir antes de subir. Quitar si tienes archivos que preservar.
+ 
