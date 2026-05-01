@@ -1,35 +1,41 @@
 ---
-
 import '../styles/Layout.css';
 import '../styles/global.css';
 import Footer from '../components/footer.astro';
+
 interface Props {
     title: string;
+    description?: string;  // ← Agregamos description como opcional
 }
 
-
-
-
-const { title } = Astro.props ;
-
+const { title, description } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Montero Mantainance - {title}</title>
+    
+    <!-- Título de la página -->
+    <title>Montero Maintenance - {title}</title>
+    
+    <!-- Meta descripción (si se proporciona) -->
+    {description && (
+        <meta name="description" content={description} />
+    )}
+    
+    <!-- Metaetiquetas adicionales para SEO -->
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Montero Maintenance" />
 </head>
 <body>
-    <main class ="mx-auto container md:pt-10">
-<slot/>
-
+    <main class="mx-auto container md:pt-10">
+        <slot/>
     </main>
     
     <Footer/>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>
