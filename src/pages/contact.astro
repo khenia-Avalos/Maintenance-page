@@ -41,8 +41,8 @@ import Button from "../components/button.astro"
                   required
                   class="w-full px-5 py-3 rounded-lg border border-gray-300 focus:border-[#D2B48C] focus:outline-none transition-all duration-300 text-[#1A1A1A] bg-white"
                 >
-                  <option value="budget">📋 Request a Free Estimate</option>
-                  <option value="schedule">📅 Schedule a Service (I have a quote)</option>
+                  <option value="budget"> Request a Free Estimate</option>
+                  <option value="schedule">Schedule a Service (I have a quote)</option>
                 </select>
               </div>
 
@@ -88,10 +88,10 @@ import Button from "../components/button.astro"
                   class="w-full px-5 py-3 rounded-lg border border-gray-300 focus:border-[#D2B48C] focus:outline-none transition-all duration-300 text-[#1A1A1A] bg-white"
                 >
                   <option value="">Select a service</option>
-                  <option value="Lawn Care">🌿 Lawn Care</option>
-                  <option value="Cleaning Services">🧼 Cleaning Services</option>
-                  <option value="Snow Removal">❄️ Snow Removal</option>
-                  <option value="Power Washing">💧 Power Washing</option>
+                  <option value="Lawn Care"> Lawn Care</option>
+                  <option value="Cleaning Services"> Cleaning Services</option>
+                  <option value="Snow Removal"> Snow Removal</option>
+                  <option value="Power Washing"> Power Washing</option>
                 </select>
               </div>
               
@@ -153,7 +153,7 @@ import Button from "../components/button.astro"
                 </div>
                 <div>
                   <h3 class="font-bold text-[#1A1A1A] mb-1 text-sm uppercase tracking-wide">Email</h3>
-                  <p class="text-[#4B5563] text-lg">concierge@monteromaintenance.com</p>
+                  <p class="text-[#4B5563] text-lg">contact@monteromaintenance.com</p>
                 </div>
               </div>
               
@@ -203,7 +203,10 @@ import Button from "../components/button.astro"
 </Layout>
 
 <!-- Script para mostrar/ocultar campos según la selección -->
+<!-- Script para mostrar/ocultar campos y manejar el envío con SweetAlert -->
 <script>
+  /* global Swal */
+  
   const requestType = document.getElementById('request_type');
   const dateField = document.getElementById('date_field');
 
@@ -218,5 +221,83 @@ import Button from "../components/button.astro"
   if (requestType) {
     requestType.addEventListener('change', toggleFields);
     toggleFields();
+  }
+
+  const form = document.querySelector('form');
+
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const submitButton = form.querySelector('button[type="submit"]');
+      const originalButtonText = submitButton.textContent;
+      
+      submitButton.textContent = 'Sending...';
+      submitButton.disabled = true;
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData
+        });
+
+        const result = await response.json();
+
+        if (response.ok && result.success) {
+          // Success notification
+          Swal.fire({
+            icon: 'success',
+            title: 'Message Sent!',
+            html: `
+              <div style="font-family: 'Inter', sans-serif;">
+                <p style="color: #4B5563; margin-bottom: 8px;">${result.message}</p>
+                <p style="color: #D2B48C; font-size: 14px; margin-top: 12px;"> We'll contact you within 24 hours </p>
+              </div>
+            `,
+            confirmButtonText: 'Great!',
+            confirmButtonColor: '#D2B48C',
+            background: '#FFFFFF',
+            iconColor: '#D2B48C',
+            timer: 5000,
+            timerProgressBar: true,
+            showConfirmButton: true
+          });
+          
+          form.reset();
+          if (requestType) requestType.value = 'budget';
+          toggleFields();
+          
+        } else {
+          // Error notification
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: result.error || 'Something went wrong. Please try again.',
+            confirmButtonText: 'Try Again',
+            confirmButtonColor: '#D2B48C',
+            background: '#FFFFFF',
+            iconColor: '#ef4444'
+          });
+        }
+        
+      } catch (error) {
+        // Connection error notification
+        Swal.fire({
+          icon: 'error',
+          title: 'Connection Error',
+          text: 'Unable to connect to the server. Please check your internet connection.',
+          confirmButtonText: 'OK',
+          confirmButtonColor: '#D2B48C',
+          background: '#FFFFFF',
+          iconColor: '#ef4444'
+        });
+        
+      } finally {
+        submitButton.textContent = originalButtonText;
+        submitButton.disabled = false;
+      }
+    });
   }
 </script>
