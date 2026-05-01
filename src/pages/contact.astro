@@ -117,7 +117,7 @@ import Button from "../components/button.astro"
                   class="w-full px-5 py-3 rounded-lg border border-gray-300 focus:border-[#D2B48C] focus:outline-none transition-all duration-300 text-[#1A1A1A] bg-white placeholder:text-gray-400 resize-none"
                 ></textarea>
               </div>
-              
+              <div class="g-recaptcha" data-sitekey="<?= getenv('RECAPTCHA_SITE_KEY') ?>"></div>
               <button 
                 type="submit"
                 class="w-full bg-[#1A1A1A] text-white px-8 py-4 rounded-lg hover:bg-[#333333] transition-all duration-300 font-semibold"
@@ -141,7 +141,7 @@ import Button from "../components/button.astro"
                 </div>
                 <div>
                   <h3 class="font-bold text-[#1A1A1A] mb-1 text-sm uppercase tracking-wide">Phone</h3>
-                  <p class="text-[#4B5563] text-lg">+1 (555) 123-4567</p>
+                  <p class="text-[#4B5563] text-lg"> +1 609-464-9834</p>
                 </div>
               </div>
               
