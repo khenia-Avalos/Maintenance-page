@@ -1,14 +1,11 @@
 ---
 // Áreas de servicio - Montero Maintenance LLC
 const areas = [
-  { city: "Miami", state: "FL", zip: "33101" },
-  { city: "Orlando", state: "FL", zip: "32801" },
-  { city: "Tampa", state: "FL", zip: "33601" },
-  { city: "Jacksonville", state: "FL", zip: "32201" },
-  { city: "Fort Lauderdale", state: "FL", zip: "33301" },
-  { city: "West Palm Beach", state: "FL", zip: "33401" },
-  { city: "Naples", state: "FL", zip: "34101" },
-  { city: "Sarasota", state: "FL", zip: "34201" }
+  { city: "Margate" },
+  { city: "Ventnor" },
+    { city: "Longport" },
+
+
 ];
 ---
 
@@ -26,7 +23,7 @@ const areas = [
     <div class="relative bg-[#FAF0E6] rounded-3xl p-8 mb-10 overflow-hidden">
       <div class="relative z-10 text-center">
         <p class="text-[#6B7280] font-medium mb-2">Currently Operating in</p>
-        <p class="text-3xl md:text-4xl font-bold text-[#1A1A1A]">Florida</p>
+        <p class="text-3xl md:text-4xl font-bold text-[#1A1A1A]">Ventnor</p>
        
       </div>
     </div>
@@ -37,7 +34,7 @@ const areas = [
         <div class="group">
           <div class="bg-[#FAF0E6] hover:bg-[#D2B48C] px-5 py-2 rounded-full transition-all duration-300 cursor-default">
             <span class="text-[#1A1A1A] group-hover:text-white font-medium text-sm">
-              {area.city}, {area.state}
+              {area.city}
             </span>
           </div>
         </div>

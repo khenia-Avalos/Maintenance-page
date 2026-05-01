@@ -46,20 +46,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mail = new PHPMailer(true);
 
     try {
-        // Configuración del servidor SMTP
+        // Configuración del servidor SMTP (autenticación con tu dominio)
         $mail->isSMTP();
         $mail->Host       = 'smtp.hostinger.com';
         $mail->SMTPAuth   = true;
         $mail->Username   = 'contact@monteromaintenance.com';
-        $mail->Password   = getenv('SMTP_PASSWORD'); // 👈 Lee la contraseña desde .env
+        $mail->Password   = getenv('SMTP_PASSWORD');
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         $mail->Port       = 465;
 
-        // Remitente y destinatario
+        // --- REMITENTE: Usa la dirección autenticada (la de tu dominio) ---
         $mail->setFrom('contact@monteromaintenance.com', 'Montero Maintenance');
+        
+        // --- DESTINATARIO: Tu Gmail personal ---
         $mail->addAddress('the.montero.groups@gmail.com', 'Jorge Montero');
+        
+        // --- REPLY-TO: La dirección del cliente (para responderle directamente) ---
+        $mail->addReplyTo($email, $name);
 
-        // Contenido del correo
+        // --- Contenido del correo ---
         $mail->isHTML(false);
         $subject = "Nuevo mensaje de contacto - $service";
         $mail->Subject = $subject;
