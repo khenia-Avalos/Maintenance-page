@@ -5,28 +5,28 @@
       "title": "Lawn Care",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet.",
       "features": ["", "", "", "", ""],
-      "image": "/images/logoMontero.jpeg"
+      "image": "/images/lawn.jpg"
     },
     {
       "id": 2,
       "title": "Cleaning Services",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet.",
       "features": ["", "", "", "", ""],
-      "image": "/images/logoMontero.jpeg"
+      "image": "/images/cleaning.jpg"
     },
     {
       "id": 3,
       "title": "Snow Removal",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet.",
       "features": ["", "", "", "", ""],
-      "image": "/images/logoMontero.jpeg"
+      "image": "/images/snow.jpg"
     },
     {
       "id": 4,
       "title": "Power Washing",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet.",
       "features": ["", "", "", "", ""],
-      "image": "/images/logoMontero.jpeg"
+      "image": "/images/power.jpg"
     }
   ]
 }
