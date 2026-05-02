@@ -1,0 +1,36 @@
+{
+    "faqs": [
+  {
+    "question": "What areas do you serve?",
+    "answer": "We proudly serve Miami, Orlando, Tampa, Jacksonville, and surrounding areas. Contact us to check if we cover your specific location."
+  },
+  {
+    "question": "Do you offer free estimates?",
+    "answer": "Yes! We provide free, no-obligation estimates for all our services. Simply fill out our contact form or give us a call to schedule an appointment."
+  },
+  {
+    "question": "Are you licensed and insured?",
+    "answer": "Absolutely. Montero Maintenance LLC is fully licensed and insured for your peace of mind. We carry comprehensive liability insurance."
+  },
+  {
+    "question": "How often should I schedule lawn care?",
+    "answer": "During peak growing season (spring and summer), we recommend weekly mowing. During fall and winter, every 2-3 weeks is typically sufficient."
+  },
+  {
+    "question": "Do I need to be home during the service?",
+    "answer": "Not necessarily. Many of our clients provide access instructions or a garage code. We always communicate our arrival time and send photos upon completion."
+  },
+  {
+    "question": "What happens if it rains on my scheduled day?",
+    "answer": "We monitor weather conditions closely. If rain prevents safe or effective service, we'll contact you to reschedule for the next available day."
+  },
+  {
+    "question": "Do you use eco-friendly products?",
+    "answer": "Yes. We prioritize environmentally responsible products whenever possible, especially for our cleaning services and lawn treatments."
+  },
+  {
+    "question": "How can I pay for services?",
+    "answer": "We accept cash, credit cards, Venmo, Zelle, and bank transfers. Payment is due upon completion of service unless other arrangements are made."
+  }
+]
+}

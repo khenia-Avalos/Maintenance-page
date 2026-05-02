@@ -1,0 +1,125 @@
+---
+// Componente de Preguntas Frecuentes - Acordeón
+interface FAQ {
+  question: string;
+  answer: string;
+}
+
+const faqs: FAQ[] = [];
+---
+
+<section class="py-20 bg-white">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Encabezado -->
+    <div class="text-center mb-12">
+      <span class="text-[#6B7280] font-semibold text-sm uppercase tracking-wide">FAQ</span>
+      <h2 class="text-4xl md:text-5xl font-bold text-[#1A1A1A] mt-2">Frequently Asked Questions</h2>
+      <div class="w-20 h-0.5 bg-[#D2B48C] mx-auto mt-4"></div>
+      <p class="text-[#4B5563] mt-4 max-w-2xl mx-auto">
+        Everything you need to know about our services
+      </p>
+    </div>
+    
+    <!-- Grid de preguntas -->
+    <div class="space-y-4">
+      {faqs.map((faq, index) => (
+        <div class="border border-gray-200 rounded-xl overflow-hidden bg-white hover:shadow-md transition-shadow duration-300">
+          <button 
+            class="faq-question w-full text-left px-6 py-4 flex justify-between items-center gap-4 bg-white hover:bg-[#FAF0E6] transition-colors duration-200"
+            data-index={index}
+          >
+            <span class="text-lg font-semibold text-[#1A1A1A]">{faq.question}</span>
+            <span class="faq-icon text-[#D2B48C] text-xl transition-transform duration-300">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer hidden px-6 pb-4" data-index={index}>
+            <div class="pt-2 text-[#4B5563] leading-relaxed border-t border-gray-100">
+              {faq.answer}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+    
+    <!-- CTA final -->
+    <div class="text-center mt-12 pt-8">
+      <p class="text-[#4B5563] mb-4">Still have questions?</p>
+      <a href="/contact" class="inline-block bg-[#1A1A1A] text-white px-8 py-3 rounded-lg hover:bg-[#333333] transition-colors font-semibold">
+        Contact Us
+      </a>
+    </div>
+    
+  </div>
+</section>
+
+<script>
+  // Funcionalidad del acordeón
+  const questions = document.querySelectorAll('.faq-question');
+  
+  questions.forEach(button => {
+    button.addEventListener('click', () => {
+      const index = button.getAttribute('data-index');
+      const answer = document.querySelector(`.faq-answer[data-index="${index}"]`);
+      const icon = button.querySelector('.faq-icon svg');
+      
+      if (!answer || !icon) return;
+      
+      // Cerrar otras respuestas abiertas
+      const allAnswers = document.querySelectorAll('.faq-answer');
+      const allIcons = document.querySelectorAll('.faq-question .faq-icon svg');
+      
+      allAnswers.forEach(ans => {
+        if (ans !== answer && ans.classList.contains('block')) {
+          ans.classList.remove('block');
+          ans.classList.add('hidden');
+        }
+      });
+      
+      allIcons.forEach(ic => {
+        if (ic !== icon && ic.classList.contains('rotate-180')) {
+          ic.classList.remove('rotate-180');
+        }
+      });
+      
+      // Alternar la respuesta actual
+      if (answer.classList.contains('hidden')) {
+        answer.classList.remove('hidden');
+        answer.classList.add('block');
+        icon.classList.add('rotate-180');
+      } else {
+        answer.classList.remove('block');
+        answer.classList.add('hidden');
+        icon.classList.remove('rotate-180');
+      }
+    });
+  });
+</script>
+
+<style>
+  .faq-icon svg {
+    transition: transform 0.3s ease;
+  }
+  
+  .rotate-180 {
+    transform: rotate(180deg);
+  }
+  
+  .faq-answer {
+    animation: fadeIn 0.3s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
