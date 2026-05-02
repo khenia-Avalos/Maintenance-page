@@ -1,16 +1,15 @@
-{
-    "faqs": [
+[
   {
     "question": "What areas do you serve?",
-    "answer": "lorem."
+    "answer": "lorem"
   },
   {
     "question": "Do you offer free estimates?",
-    "answer": "lorem."
+    "answer": "lorem"
   },
   {
     "question": "Are you licensed and insured?",
-    "answer": "lorem."
+    "answer": "lorem"
   },
   {
     "question": "How often should I schedule lawn care?",
@@ -33,4 +32,3 @@
     "answer": "lorem"
   }
 ]
-}
