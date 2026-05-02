@@ -5,89 +5,47 @@ import Button from "../components/button.astro"
 ---
 
 <Layout title="Contact Us"
-  description="Get in touch with Montero Maintenance for professional cleaning and maintenance services. Contact us today for a free quote and personalized attention!">
+  description="Get in touch with Montero Maintenance for professional cleaning and maintenance services.">
     <Header />
     
-    <!-- Sección Hero de Contact -->
     <section class="pt-32 pb-20 bg-gradient-to-br from-white via-[#FAF0E6] to-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center">
-          <span class="text-[#6B7280] font-semibold text-sm uppercase tracking-wide">Get In Touch</span>
           <h1 class="text-5xl md:text-7xl font-bold text-[#1A1A1A] mt-4">Contact Us</h1>
           <div class="w-24 h-0.5 bg-[#D2B48C] mx-auto mt-6 mb-6"></div>
-          <p class="text-xl text-[#4B5563] max-w-3xl mx-auto">
-            Experience the pinnacle of property maintenance. Let us elevate your space.
-          </p>
+          <p class="text-xl text-[#4B5563]">Experience the pinnacle of property maintenance.</p>
         </div>
       </div>
     </section>
     
-    <!-- Sección principal de contacto -->
     <section class="py-20 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid md:grid-cols-2 gap-16">
-          
-          <!-- Formulario de contacto -->
           <div>
             <h2 class="text-3xl font-bold text-[#1A1A1A] mb-8">Send a Message</h2>
-
             <form action="https://monteromaintenance.com/send-mail.php" method="POST" class="space-y-6" id="contactForm">
-              
-              <!-- Tipo de solicitud -->
               <div>
-                <label class="block text-[#1A1A1A] font-medium mb-2 text-sm uppercase tracking-wide">Request Type *</label>
-                <select 
-                  name="request_type"
-                  id="request_type"
-                  required
-                  class="w-full px-5 py-3 rounded-lg border border-gray-300 focus:border-[#D2B48C] focus:outline-none transition-all duration-300 text-[#1A1A1A] bg-white"
-                >
+                <label class="block text-[#1A1A1A] font-medium mb-2">Request Type *</label>
+                <select name="request_type" id="request_type" required class="w-full px-5 py-3 rounded-lg border border-gray-300">
                   <option value="budget">📋 Request a Free Estimate</option>
-                  <option value="schedule">📅 Schedule a Service (I have a quote)</option>
+                  <option value="schedule">📅 Schedule a Service</option>
                 </select>
               </div>
-
-              <!-- Campos básicos -->
               <div>
-                <label class="block text-[#1A1A1A] font-medium mb-2 text-sm uppercase tracking-wide">Full Name *</label>
-                <input 
-                  type="text" 
-                  name="name"
-                  required
-                  placeholder="John Anderson"
-                  class="w-full px-5 py-3 rounded-lg border border-gray-300 focus:border-[#D2B48C] focus:outline-none transition-all duration-300 text-[#1A1A1A] bg-white placeholder:text-gray-400"
-                />
+                <label class="block text-[#1A1A1A] font-medium mb-2">Full Name *</label>
+                <input type="text" name="name" required placeholder="John Anderson" class="w-full px-5 py-3 rounded-lg border border-gray-300" />
               </div>
-              
               <div>
-                <label class="block text-[#1A1A1A] font-medium mb-2 text-sm uppercase tracking-wide">Email Address *</label>
-                <input 
-                  type="email" 
-                  name="email"
-                  required
-                  placeholder="john.anderson@example.com"
-                  class="w-full px-5 py-3 rounded-lg border border-gray-300 focus:border-[#D2B48C] focus:outline-none transition-all duration-300 text-[#1A1A1A] bg-white placeholder:text-gray-400"
-                />
+                <label class="block text-[#1A1A1A] font-medium mb-2">Email *</label>
+                <input type="email" name="email" required placeholder="john@example.com" class="w-full px-5 py-3 rounded-lg border border-gray-300" />
               </div>
-              
               <div>
-                <label class="block text-[#1A1A1A] font-medium mb-2 text-sm uppercase tracking-wide">Phone Number</label>
-                <input 
-                  type="tel" 
-                  name="phone"
-                  placeholder="+1 (555) 123-4567"
-                  class="w-full px-5 py-3 rounded-lg border border-gray-300 focus:border-[#D2B48C] focus:outline-none transition-all duration-300 text-[#1A1A1A] bg-white placeholder:text-gray-400"
-                />
+                <label class="block text-[#1A1A1A] font-medium mb-2">Phone</label>
+                <input type="tel" name="phone" placeholder="+1 (555) 123-4567" class="w-full px-5 py-3 rounded-lg border border-gray-300" />
               </div>
-              
-              <!-- Servicio -->
               <div>
-                <label class="block text-[#1A1A1A] font-medium mb-2 text-sm uppercase tracking-wide">Service Needed *</label>
-                <select 
-                  name="service"
-                  required
-                  class="w-full px-5 py-3 rounded-lg border border-gray-300 focus:border-[#D2B48C] focus:outline-none transition-all duration-300 text-[#1A1A1A] bg-white"
-                >
+                <label class="block text-[#1A1A1A] font-medium mb-2">Service Needed *</label>
+                <select name="service" required class="w-full px-5 py-3 rounded-lg border border-gray-300">
                   <option value="">Select a service</option>
                   <option value="Lawn Care">🌿 Lawn Care</option>
                   <option value="Cleaning Services">🧼 Cleaning Services</option>
@@ -95,90 +53,48 @@ import Button from "../components/button.astro"
                   <option value="Power Washing">💧 Power Washing</option>
                 </select>
               </div>
-              
-              <!-- Campo de fecha -->
               <div id="date_field" style="display: none;">
-                <label class="block text-[#1A1A1A] font-medium mb-2 text-sm uppercase tracking-wide">Preferred Date</label>
-                <input 
-                  type="date" 
-                  name="preferred_date"
-                  class="w-full px-5 py-3 rounded-lg border border-gray-300 focus:border-[#D2B48C] focus:outline-none transition-all duration-300 text-[#1A1A1A] bg-white"
-                />
+                <label class="block text-[#1A1A1A] font-medium mb-2">Preferred Date</label>
+                <input type="date" name="preferred_date" class="w-full px-5 py-3 rounded-lg border border-gray-300" />
               </div>
-              
-              <!-- Mensaje -->
               <div>
-                <label class="block text-[#1A1A1A] font-medium mb-2 text-sm uppercase tracking-wide">Message / Details *</label>
-                <textarea 
-                  rows="5" 
-                  name="message"
-                  required
-                  placeholder="Please describe your property and what services you need..."
-                  class="w-full px-5 py-3 rounded-lg border border-gray-300 focus:border-[#D2B48C] focus:outline-none transition-all duration-300 text-[#1A1A1A] bg-white placeholder:text-gray-400 resize-none"
-                ></textarea>
+                <label class="block text-[#1A1A1A] font-medium mb-2">Message *</label>
+                <textarea rows="5" name="message" required placeholder="Please describe your needs..." class="w-full px-5 py-3 rounded-lg border border-gray-300"></textarea>
               </div>
-              
-              <button 
-                type="submit"
-                id="submitBtn"
-                class="w-full bg-[#1A1A1A] text-white px-8 py-4 rounded-lg hover:bg-[#333333] transition-all duration-300 font-semibold"
-              >
-                Send Message
-              </button>
+              <button type="submit" id="submitBtn" class="w-full bg-[#1A1A1A] text-white px-8 py-4 rounded-lg hover:bg-[#333333] font-semibold">Send Message</button>
             </form>
           </div>
-          
-          <!-- Información de contacto (simplificada) -->
           <div class="bg-[#FAF0E6] rounded-3xl p-8 md:p-10">
             <h2 class="text-3xl font-bold text-[#1A1A1A] mb-8">Contact Information</h2>
             <div class="space-y-8">
               <div class="flex items-start gap-5">
                 <div class="w-12 h-12 bg-[#D2B48C] rounded-full flex items-center justify-center">
-                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                  </svg>
+                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
                 </div>
-                <div>
-                  <h3 class="font-bold text-[#1A1A1A] mb-1">Phone</h3>
-                  <p class="text-[#4B5563]">+1 609-464-9834</p>
-                </div>
+                <div><h3 class="font-bold">Phone</h3><p class="text-[#4B5563]">+1 609-464-9834</p></div>
               </div>
               <div class="flex items-start gap-5">
                 <div class="w-12 h-12 bg-[#D2B48C] rounded-full flex items-center justify-center">
-                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                  </svg>
+                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                 </div>
-                <div>
-                  <h3 class="font-bold text-[#1A1A1A] mb-1">Email</h3>
-                  <p class="text-[#4B5563]">contact@monteromaintenance.com</p>
-                </div>
+                <div><h3 class="font-bold">Email</h3><p class="text-[#4B5563]">contact@monteromaintenance.com</p></div>
               </div>
               <div class="flex items-start gap-5">
                 <div class="w-12 h-12 bg-[#D2B48C] rounded-full flex items-center justify-center">
-                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                  </svg>
+                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 </div>
-                <div>
-                  <h3 class="font-bold text-[#1A1A1A] mb-1">Business Hours</h3>
-                  <p class="text-[#4B5563]">Mon-Fri: 8am - 6pm</p>
-                  <p class="text-[#4B5563]">Sat: 9am - 4pm</p>
-                  <p class="text-[#4B5563]">Sun: Closed</p>
-                </div>
+                <div><h3 class="font-bold">Hours</h3><p class="text-[#4B5563]">Mon-Fri: 8am-6pm<br>Sat: 9am-4pm<br>Sun: Closed</p></div>
               </div>
             </div>
           </div>
-          
         </div>
       </div>
     </section>
-  
-    <!-- Call to Action -->
+    
     <section class="py-20 bg-white">
       <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
         <div class="bg-[#FAF0E6] rounded-3xl p-12">
-          <h2 class="text-3xl md:text-4xl font-bold text-[#1A1A1A] mb-4">Need Emergency Service?</h2>
+          <h2 class="text-3xl font-bold text-[#1A1A1A] mb-4">Need Emergency Service?</h2>
           <Button href="tel:+16094649834" text="Call Now: +1 609-464-9834" />
         </div>
       </div>
@@ -186,8 +102,89 @@ import Button from "../components/button.astro"
     
 </Layout>
 
+<!-- ESTILOS PARA EL TOAST (MENSAJE FLOTANTE BONITO) -->
+<style>
+  .custom-toast {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    z-index: 99999;
+    min-width: 300px;
+    max-width: 450px;
+    padding: 16px 20px;
+    border-radius: 12px;
+    font-family: system-ui, -apple-system, 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: white;
+    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.02);
+    animation: slideInRight 0.3s ease-out;
+    backdrop-filter: blur(8px);
+  }
+  
+  .custom-toast.success {
+    background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+  }
+  
+  .custom-toast.error {
+    background: linear-gradient(135deg, #EF4444 0%, #DC2626 100%);
+  }
+  
+  .custom-toast.info {
+    background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+  }
+  
+  .custom-toast .toast-title {
+    font-weight: 700;
+    margin-bottom: 4px;
+    font-size: 15px;
+  }
+  
+  .custom-toast .toast-message {
+    font-size: 13px;
+    opacity: 0.9;
+  }
+  
+  @keyframes slideInRight {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeOut {
+    to {
+      opacity: 0;
+      transform: translateX(20px);
+      visibility: hidden;
+    }
+  }
+</style>
+
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
+  // Función para mostrar toast bonito
+  function showToast(message, type, title) {
+    // Eliminar toast anterior
+    var existing = document.querySelector('.custom-toast');
+    if (existing) existing.remove();
+    
+    var toast = document.createElement('div');
+    toast.className = 'custom-toast ' + type;
+    toast.innerHTML = '<div class="toast-title">' + (title || (type === 'success' ? '✓ Success' : '✗ Error')) + '</div><div class="toast-message">' + message + '</div>';
+    document.body.appendChild(toast);
+    
+    setTimeout(function() {
+      toast.style.animation = 'fadeOut 0.3s ease-out';
+      setTimeout(function() { if (toast.parentNode) toast.remove(); }, 300);
+    }, 4500);
+  }
+
+  // Lógica del formulario
+  (function() {
     var requestType = document.getElementById('request_type');
     var dateField = document.getElementById('date_field');
 
@@ -216,7 +213,7 @@ import Button from "../components/button.astro"
 
         var formData = new FormData(form);
 
-        fetch(form.action, {
+        fetch('https://monteromaintenance.com/send-mail.php', {
           method: 'POST',
           body: formData
         })
@@ -226,40 +223,20 @@ import Button from "../components/button.astro"
           btn.disabled = false;
           
           if (data.success) {
-            // VENTANA BONITA CON SweetAlert
-            Swal.fire({
-              icon: 'success',
-              title: 'Message Sent!',
-              text: data.message,
-              confirmButtonColor: '#D2B48C',
-              confirmButtonText: 'Great!',
-              background: '#FFFFFF'
-            });
+            showToast(data.message, 'success', '✨ Message Sent!');
             form.reset();
             if (requestType) requestType.value = 'budget';
             toggleFields();
           } else {
-            Swal.fire({
-              icon: 'error',
-              title: 'Error',
-              text: data.error || 'Something went wrong. Please try again.',
-              confirmButtonColor: '#D2B48C',
-              background: '#FFFFFF'
-            });
+            showToast(data.error || 'Something went wrong', 'error', '❌ Delivery Failed');
           }
         })
-        .catch(function(err) {
+        .catch(function() {
           btn.textContent = originalText;
           btn.disabled = false;
-          Swal.fire({
-            icon: 'error',
-            title: 'Connection Error',
-            text: 'Unable to connect to the server. Please try again.',
-            confirmButtonColor: '#D2B48C',
-            background: '#FFFFFF'
-          });
+          showToast('Unable to connect to the server', 'error', '⚠️ Connection Error');
         });
       });
     }
-  });
+  })();
 </script>
