@@ -8,6 +8,29 @@ require 'PHPMailer/src/Exception.php';
 require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';
 
+// --- Verificar reCAPTCHA ---
+function verificarRecaptcha($secretKey, $response) {
+    $url = 'https://www.google.com/recaptcha/api/siteverify';
+    $data = [
+        'secret' => $secretKey,
+        'response' => $response
+    ];
+    
+    $options = [
+        'http' => [
+            'header' => "Content-type: application/x-www-form-urlencoded\r\n",
+            'method' => 'POST',
+            'content' => http_build_query($data)
+        ]
+    ];
+    
+    $context = stream_context_create($options);
+    $result = file_get_contents($url, false, $context);
+    $resultJson = json_decode($result, true);
+    
+    return $resultJson['success'];
+}
+
 // Cargar variables de entorno desde .env
 if (file_exists(__DIR__ . '/.env')) {
     $env = parse_ini_file(__DIR__ . '/.env');
@@ -22,6 +45,19 @@ if (file_exists(__DIR__ . '/.env')) {
 header('Content-Type: application/json');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // --- Verificar reCAPTCHA ---
+    $recaptchaSecret = '6Lekr9QsAAAAADRI9sNmkFSRHIw4IQYDhz7qPLSu'; 
+    $recaptchaResponse = isset($_POST['g-recaptcha-response']) ? $_POST['g-recaptcha-response'] : '';
+
+    if (empty($recaptchaResponse)) {
+        echo json_encode(["success" => false, "error" => "Please complete the CAPTCHA verification."]);
+        exit;
+    }
+
+    if (!verificarRecaptcha($recaptchaSecret, $recaptchaResponse)) {
+        echo json_encode(["success" => false, "error" => "CAPTCHA verification failed. Please try again."]);
+        exit;
+    }
 
     // --- Recibir y limpiar datos ---
     $name = isset($_POST['name']) ? trim(strip_tags($_POST['name'])) : '';
@@ -85,7 +121,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <tr>
                     <td style="padding: 12px; background-color: #FAF0E6; border-bottom: 1px solid #E5E7EB; font-weight: bold; width: 130px;">Preferred Date:</td>
                     <td style="padding: 12px; background-color: #FAF0E6; border-bottom: 1px solid #E5E7EB;">' . htmlspecialchars($date_formatted) . '</td>
-                </tr>';
+                </table>';
         }
 
         $mail->Body = '<!DOCTYPE html>
