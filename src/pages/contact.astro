@@ -42,7 +42,7 @@ import Button from "../components/button.astro"
                   required
                   class="w-full px-5 py-3 rounded-lg border border-gray-300 focus:border-[#D2B48C] focus:outline-none transition-all duration-300 text-[#1A1A1A] bg-white"
                 >
-                  <option value="budget"> Request a Free Estimate</option>
+                  <option value="budget">Request a Free Estimate</option>
                   <option value="schedule"> Schedule a Service (I have a quote)</option>
                 </select>
               </div>
@@ -75,7 +75,7 @@ import Button from "../components/button.astro"
                 <input 
                   type="tel" 
                   name="phone"
-                  placeholder="+1 555-123-4567"
+                  placeholder="+1 55-123-4567"
                   class="w-full px-5 py-3 rounded-lg border border-gray-300 focus:border-[#D2B48C] focus:outline-none transition-all duration-300 text-[#1A1A1A] bg-white placeholder:text-gray-400"
                 />
               </div>
@@ -90,8 +90,8 @@ import Button from "../components/button.astro"
                 >
                   <option value="">Select a service</option>
                   <option value="Lawn Care"> Lawn Care</option>
-                  <option value="Cleaning Services">Cleaning Services</option>
-                  <option value="Snow Removal">Snow Removal</option>
+                  <option value="Cleaning Services"> Cleaning Services</option>
+                  <option value="Snow Removal"> Snow Removal</option>
                   <option value="Power Washing"> Power Washing</option>
                 </select>
               </div>
@@ -128,58 +128,47 @@ import Button from "../components/button.astro"
             </form>
           </div>
           
-          <!-- Información de contacto -->
+          <!-- Información de contacto (igual que antes) -->
           <div class="bg-[#FAF0E6] rounded-3xl p-8 md:p-10">
             <h2 class="text-3xl font-bold text-[#1A1A1A] mb-8">Contact Information</h2>
-            
             <div class="space-y-8">
-              <div class="flex items-start gap-5 group">
-                <div class="w-12 h-12 bg-[#D2B48C] rounded-full flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
+              <div class="flex items-start gap-5">
+                <div class="w-12 h-12 bg-[#D2B48C] rounded-full flex items-center justify-center">
                   <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
                   </svg>
                 </div>
                 <div>
-                  <h3 class="font-bold text-[#1A1A1A] mb-1 text-sm uppercase tracking-wide">Phone</h3>
-                  <p class="text-[#4B5563] text-lg">+1 609-464-9834</p>
+                  <h3 class="font-bold text-[#1A1A1A] mb-1">Phone</h3>
+                  <p class="text-[#4B5563]">+1 609-464-9834</p>
                 </div>
               </div>
-              
-              <div class="flex items-start gap-5 group">
-                <div class="w-12 h-12 bg-[#D2B48C] rounded-full flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
+              <div class="flex items-start gap-5">
+                <div class="w-12 h-12 bg-[#D2B48C] rounded-full flex items-center justify-center">
                   <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                   </svg>
                 </div>
                 <div>
-                  <h3 class="font-bold text-[#1A1A1A] mb-1 text-sm uppercase tracking-wide">Email</h3>
-                  <p class="text-[#4B5563] text-lg">contact@monteromaintenance.com</p>
-                                    <p class="text-[#4B5563] text-lg">The.montero.groups@gmail.com</p>
+                  <h3 class="font-bold text-[#1A1A1A] mb-1">Email</h3>
+                  <p class="text-[#4B5563]">contact@monteromaintenance.com</p>
+                                    <p class="text-[#4B5563]">The.montero.groups@gmail.com</p>
 
                 </div>
               </div>
-              
-              <div class="flex items-start gap-5 group">
-                <div class="w-12 h-12 bg-[#D2B48C] rounded-full flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
+              <div class="flex items-start gap-5">
+                <div class="w-12 h-12 bg-[#D2B48C] rounded-full flex items-center justify-center">
                   <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                   </svg>
                 </div>
                 <div>
-                  <h3 class="font-bold text-[#1A1A1A] mb-1 text-sm uppercase tracking-wide">Business Hours</h3>
-                  <p class="text-[#4B5563]">Monday - Friday: 8:00 AM - 6:00 PM</p>
-                  <p class="text-[#4B5563]">Saturday: 9:00 AM - 4:00 PM</p>
-                  <p class="text-[#4B5563]">Sunday: Closed</p>
+                  <h3 class="font-bold text-[#1A1A1A] mb-1">Business Hours</h3>
+                  <p class="text-[#4B5563]">Mon-Fri: 8am - 6pm</p>
+                  <p class="text-[#4B5563]">Sat: 9am - 4pm</p>
+                  <p class="text-[#4B5563]">Sun: Closed</p>
                 </div>
               </div>
-            </div>
-            
-            <div class="w-full h-px bg-[#D2B48C]/30 my-8"></div>
-            
-            <div class="text-center">
-              <p class="text-[#6B7280] text-sm italic">
-                "White-glove service for discerning homeowners"
-              </p>
             </div>
           </div>
           
@@ -187,48 +176,45 @@ import Button from "../components/button.astro"
       </div>
     </section>
   
-    <!-- Call to Action - Emergency -->
+    <!-- Call to Action -->
     <section class="py-20 bg-white">
       <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
         <div class="bg-[#FAF0E6] rounded-3xl p-12">
           <h2 class="text-3xl md:text-4xl font-bold text-[#1A1A1A] mb-4">Need Emergency Service?</h2>
-          <div class="w-16 h-0.5 bg-[#D2B48C] mx-auto my-6"></div>
-          <Button href="tel:+15551234567" text="Call Now: +1 609-464-9834" />
+          <Button href="tel:+16094649834" text="Call Now: +1 609-464-9834" />
         </div>
       </div>
     </section>
     
 </Layout>
 
-<!-- Estilos para el toast flotante -->
+<!-- Estilos simples para el mensaje flotante -->
 <style>
-  .toast-message {
+  .floating-msg {
     position: fixed;
-    top: 90px;
-    right: 20px;
+    top: 30px;
+    right: 30px;
     z-index: 9999;
-    padding: 16px 24px;
-    border-radius: 12px;
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
+    padding: 15px 25px;
+    background: #1A1A1A;
     color: white;
-    background-color: #1A1A1A;
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    animation: slideInRight 0.3s ease-out;
-    max-width: 380px;
-    text-align: center;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    animation: slideIn 0.3s ease-out;
   }
   
-  .toast-message.success {
-    background-color: #10B981;
+  .floating-msg.success {
+    background: #10B981;
   }
   
-  .toast-message.error {
-    background-color: #EF4444;
+  .floating-msg.error {
+    background: #EF4444;
   }
   
-  @keyframes slideInRight {
+  @keyframes slideIn {
     from {
       transform: translateX(100%);
       opacity: 0;
@@ -240,9 +226,6 @@ import Button from "../components/button.astro"
   }
   
   @keyframes fadeOut {
-    from {
-      opacity: 1;
-    }
     to {
       opacity: 0;
       visibility: hidden;
@@ -251,25 +234,23 @@ import Button from "../components/button.astro"
 </style>
 
 <script>
-  function showToast(message, type) {
-    // Eliminar cualquier toast existente
-    var existingToast = document.querySelector('.toast-message');
-    if (existingToast) {
-      existingToast.remove();
-    }
+  function showMessage(message, type) {
+    // Eliminar mensaje anterior si existe
+    var oldMsg = document.querySelector('.floating-msg');
+    if (oldMsg) oldMsg.remove();
     
-    // Crear nuevo toast
-    var toast = document.createElement('div');
-    toast.className = 'toast-message ' + (type === 'success' ? 'success' : 'error');
-    toast.textContent = message;
-    document.body.appendChild(toast);
+    // Crear nuevo mensaje
+    var msg = document.createElement('div');
+    msg.className = 'floating-msg ' + (type === 'success' ? 'success' : 'error');
+    msg.textContent = message;
+    document.body.appendChild(msg);
     
-    // Auto-ocultar después de 4 segundos
+    // Ocultar después de 4 segundos
     setTimeout(function() {
-      toast.style.animation = 'fadeOut 0.5s ease-out';
+      msg.style.animation = 'fadeOut 0.3s ease-out';
       setTimeout(function() {
-        if (toast.parentNode) toast.remove();
-      }, 500);
+        if (msg.parentNode) msg.remove();
+      }, 300);
     }, 4000);
   }
 
@@ -291,16 +272,14 @@ import Button from "../components/button.astro"
     }
 
     var form = document.getElementById('contactForm');
-
     if (form) {
       form.addEventListener('submit', function(e) {
         e.preventDefault();
 
-        var submitButton = document.getElementById('submitBtn');
-        var originalButtonText = submitButton.textContent;
-        
-        submitButton.textContent = 'Sending...';
-        submitButton.disabled = true;
+        var btn = document.getElementById('submitBtn');
+        var originalText = btn.textContent;
+        btn.textContent = 'Sending...';
+        btn.disabled = true;
 
         var formData = new FormData(form);
 
@@ -308,26 +287,23 @@ import Button from "../components/button.astro"
           method: 'POST',
           body: formData
         })
-        .then(function(response) {
-          return response.json();
-        })
-        .then(function(result) {
-          if (result.success) {
-            showToast(result.message, 'success');
+        .then(function(res) { return res.json(); })
+        .then(function(data) {
+          if (data.success) {
+            showMessage(data.message, 'success');
             form.reset();
             if (requestType) requestType.value = 'budget';
             toggleFields();
           } else {
-            showToast(result.error || 'Something went wrong. Please try again.', 'error');
+            showMessage(data.error || 'Error sending message', 'error');
           }
         })
-        .catch(function(error) {
-          console.error('Error:', error);
-          showToast('Unable to connect to the server. Please check your internet connection.', 'error');
+        .catch(function() {
+          showMessage('Connection error. Please try again.', 'error');
         })
         .finally(function() {
-          submitButton.textContent = originalButtonText;
-          submitButton.disabled = false;
+          btn.textContent = originalText;
+          btn.disabled = false;
         });
       });
     }
