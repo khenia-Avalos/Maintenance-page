@@ -42,8 +42,8 @@ import Button from "../components/button.astro"
                   required
                   class="w-full px-5 py-3 rounded-lg border border-gray-300 focus:border-[#D2B48C] focus:outline-none transition-all duration-300 text-[#1A1A1A] bg-white"
                 >
-                  <option value="budget">Request a Free Estimate</option>
-                  <option value="schedule"> Schedule a Service (I have a quote)</option>
+                  <option value="budget">📋 Request a Free Estimate</option>
+                  <option value="schedule">📅 Schedule a Service (I have a quote)</option>
                 </select>
               </div>
 
@@ -75,7 +75,7 @@ import Button from "../components/button.astro"
                 <input 
                   type="tel" 
                   name="phone"
-                  placeholder="+1 55-123-4567"
+                  placeholder="+1 (555) 123-4567"
                   class="w-full px-5 py-3 rounded-lg border border-gray-300 focus:border-[#D2B48C] focus:outline-none transition-all duration-300 text-[#1A1A1A] bg-white placeholder:text-gray-400"
                 />
               </div>
@@ -89,14 +89,14 @@ import Button from "../components/button.astro"
                   class="w-full px-5 py-3 rounded-lg border border-gray-300 focus:border-[#D2B48C] focus:outline-none transition-all duration-300 text-[#1A1A1A] bg-white"
                 >
                   <option value="">Select a service</option>
-                  <option value="Lawn Care"> Lawn Care</option>
-                  <option value="Cleaning Services"> Cleaning Services</option>
-                  <option value="Snow Removal"> Snow Removal</option>
-                  <option value="Power Washing"> Power Washing</option>
+                  <option value="Lawn Care">🌿 Lawn Care</option>
+                  <option value="Cleaning Services">🧼 Cleaning Services</option>
+                  <option value="Snow Removal">❄️ Snow Removal</option>
+                  <option value="Power Washing">💧 Power Washing</option>
                 </select>
               </div>
               
-              <!-- Campo de fecha (se muestra SOLO si eligió "schedule") -->
+              <!-- Campo de fecha -->
               <div id="date_field" style="display: none;">
                 <label class="block text-[#1A1A1A] font-medium mb-2 text-sm uppercase tracking-wide">Preferred Date</label>
                 <input 
@@ -128,7 +128,7 @@ import Button from "../components/button.astro"
             </form>
           </div>
           
-          <!-- Información de contacto (igual que antes) -->
+          <!-- Información de contacto (simplificada) -->
           <div class="bg-[#FAF0E6] rounded-3xl p-8 md:p-10">
             <h2 class="text-3xl font-bold text-[#1A1A1A] mb-8">Contact Information</h2>
             <div class="space-y-8">
@@ -152,8 +152,6 @@ import Button from "../components/button.astro"
                 <div>
                   <h3 class="font-bold text-[#1A1A1A] mb-1">Email</h3>
                   <p class="text-[#4B5563]">contact@monteromaintenance.com</p>
-                                    <p class="text-[#4B5563]">The.montero.groups@gmail.com</p>
-
                 </div>
               </div>
               <div class="flex items-start gap-5">
@@ -188,72 +186,7 @@ import Button from "../components/button.astro"
     
 </Layout>
 
-<!-- Estilos simples para el mensaje flotante -->
-<style>
-  .floating-msg {
-    position: fixed;
-    top: 30px;
-    right: 30px;
-    z-index: 9999;
-    padding: 15px 25px;
-    background: #1A1A1A;
-    color: white;
-    border-radius: 10px;
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    font-weight: bold;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    animation: slideIn 0.3s ease-out;
-  }
-  
-  .floating-msg.success {
-    background: #10B981;
-  }
-  
-  .floating-msg.error {
-    background: #EF4444;
-  }
-  
-  @keyframes slideIn {
-    from {
-      transform: translateX(100%);
-      opacity: 0;
-    }
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-  
-  @keyframes fadeOut {
-    to {
-      opacity: 0;
-      visibility: hidden;
-    }
-  }
-</style>
-
 <script>
-  function showMessage(message, type) {
-    // Eliminar mensaje anterior si existe
-    var oldMsg = document.querySelector('.floating-msg');
-    if (oldMsg) oldMsg.remove();
-    
-    // Crear nuevo mensaje
-    var msg = document.createElement('div');
-    msg.className = 'floating-msg ' + (type === 'success' ? 'success' : 'error');
-    msg.textContent = message;
-    document.body.appendChild(msg);
-    
-    // Ocultar después de 4 segundos
-    setTimeout(function() {
-      msg.style.animation = 'fadeOut 0.3s ease-out';
-      setTimeout(function() {
-        if (msg.parentNode) msg.remove();
-      }, 300);
-    }, 4000);
-  }
-
   document.addEventListener('DOMContentLoaded', function() {
     var requestType = document.getElementById('request_type');
     var dateField = document.getElementById('date_field');
@@ -289,21 +222,42 @@ import Button from "../components/button.astro"
         })
         .then(function(res) { return res.json(); })
         .then(function(data) {
+          btn.textContent = originalText;
+          btn.disabled = false;
+          
           if (data.success) {
-            showMessage(data.message, 'success');
+            // VENTANA BONITA CON SweetAlert
+            Swal.fire({
+              icon: 'success',
+              title: 'Message Sent!',
+              text: data.message,
+              confirmButtonColor: '#D2B48C',
+              confirmButtonText: 'Great!',
+              background: '#FFFFFF'
+            });
             form.reset();
             if (requestType) requestType.value = 'budget';
             toggleFields();
           } else {
-            showMessage(data.error || 'Error sending message', 'error');
+            Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              text: data.error || 'Something went wrong. Please try again.',
+              confirmButtonColor: '#D2B48C',
+              background: '#FFFFFF'
+            });
           }
         })
-        .catch(function() {
-          showMessage('Connection error. Please try again.', 'error');
-        })
-        .finally(function() {
+        .catch(function(err) {
           btn.textContent = originalText;
           btn.disabled = false;
+          Swal.fire({
+            icon: 'error',
+            title: 'Connection Error',
+            text: 'Unable to connect to the server. Please try again.',
+            confirmButtonColor: '#D2B48C',
+            background: '#FFFFFF'
+          });
         });
       });
     }
