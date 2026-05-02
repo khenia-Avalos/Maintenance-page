@@ -46,7 +46,8 @@ header('Content-Type: application/json');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // --- Verificar reCAPTCHA ---
-    $recaptchaSecret = '6Lekr9QsAAAAADRI9sNmkFSRHIw4IQYDhz7qPLSu'; 
+// ✅ Correcto - leer desde .env
+$recaptchaSecret = getenv('RECAPTCHA_SECRET');
     $recaptchaResponse = isset($_POST['g-recaptcha-response']) ? $_POST['g-recaptcha-response'] : '';
 
     if (empty($recaptchaResponse)) {
