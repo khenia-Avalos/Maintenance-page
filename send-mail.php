@@ -20,27 +20,6 @@ if (file_exists(__DIR__ . '/.env')) {
 
 // Siempre responder en JSON
 header('Content-Type: application/json');
-function verificarRecaptcha($secretKey, $response) {
-    $url = 'https://www.google.com/recaptcha/api/siteverify';
-    $data = [
-        'secret' => $secretKey,
-        'response' => $response
-    ];
-    
-    $options = [
-        'http' => [
-            'header' => "Content-type: application/x-www-form-urlencoded\r\n",
-            'method' => 'POST',
-            'content' => http_build_query($data)
-        ]
-    ];
-    
-    $context = stream_context_create($options);
-    $result = file_get_contents($url, false, $context);
-    $resultJson = json_decode($result, true);
-    
-    return $resultJson['success'];
-}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -52,19 +31,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message = isset($_POST['message']) ? trim(strip_tags($_POST['message'])) : '';
     $request_type = isset($_POST['request_type']) ? trim(strip_tags($_POST['request_type'])) : '';
     $preferred_date = isset($_POST['preferred_date']) ? trim(strip_tags($_POST['preferred_date'])) : '';
-    // --- Verificar reCAPTCHA ---
-$recaptchaSecret = getenv('RECAPTCHA_SECRET');  
-$recaptchaResponse = isset($_POST['g-recaptcha-response']) ? $_POST['g-recaptcha-response'] : '';
-
-if (empty($recaptchaResponse)) {
-    echo json_encode(["success" => false, "error" => "Por favor completa el captcha 'No soy un robot'."]);
-    exit;
-}
-
-if (!verificarRecaptcha($recaptchaSecret, $recaptchaResponse)) {
-    echo json_encode(["success" => false, "error" => "Verificación de captcha fallida. Intenta de nuevo."]);
-    exit;
-}
 
     // --- Validar campos obligatorios ---
     if (empty($name) || empty($email) || empty($message)) {
