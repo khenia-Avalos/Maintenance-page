@@ -4,28 +4,28 @@
       "id": 1,
       "title": "Lawn Care",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet.",
-      "features": ["", "", "", "", ""],
+      "features": ["Spring clean up", "Bush trimming", "Mulch", "Decorative plants"],
       "image": "/images/lawn.jpg"
     },
     {
       "id": 2,
       "title": "Cleaning Services",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet.",
-      "features": ["", "", "", "", ""],
+      "features": ["Deep cleaning", "Weekly cleaning", "Post construction cleaning", "Trash removal"],
       "image": "/images/cleaning.jpg"
     },
     {
       "id": 3,
       "title": "Snow Removal",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet.",
-      "features": ["", "", "", "", ""],
+      "features": ["Snow removal after the storm ", "Ice melter", "Pet friendly ice melter available"],
       "image": "/images/snow.jpg"
     },
     {
       "id": 4,
       "title": "Power Washing",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet.",
-      "features": ["", "", "", "", ""],
+      "features": ["Pressure washing", "Soft washing", "Window cleaning"],
       "image": "/images/pow.jpg"
     }
   ]
