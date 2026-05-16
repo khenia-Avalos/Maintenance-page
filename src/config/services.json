@@ -3,28 +3,28 @@
     {
       "id": 1,
       "title": "Lawn Care",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet.",
+      "description": "Keep your yard neat and vibrant with our complete lawn maintenance solutions.",
       "features": ["Spring clean up", "Bush trimming", "Mulch", "Decorative plants"],
       "image": "/images/lawn.jpg"
     },
     {
       "id": 2,
       "title": "Cleaning Services",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet.",
+      "description": "We handle all kinds of messes so your space stays fresh and spotless year-round.",
       "features": ["Deep cleaning", "Weekly cleaning", "Post construction cleaning", "Trash removal"],
       "image": "/images/cleaning.jpg"
     },
     {
       "id": 3,
       "title": "Snow Removal",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet.",
+      "description": "Stay safe and mobile during winter with our reliable snow and ice management.",
       "features": ["Snow removal after the storm ", "Ice melter", "Pet friendly ice melter available"],
       "image": "/images/snow.jpg"
     },
     {
       "id": 4,
       "title": "Power Washing",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet.",
+      "description": "Restore your property’s exterior surfaces with our gentle yet effective washing techniques.",
       "features": ["Pressure washing", "Soft washing", "Window cleaning"],
       "image": "/images/pow.jpg"
     }
