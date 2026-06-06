@@ -1,0 +1,160 @@
+/* src/styles/animations.css */
+/* ============================================
+   ANIMACIONES GLOBALES - Montero Maintenance
+   ============================================ */
+
+/* --------------------------------------------
+   KEYFRAMES (Definiciones de animación)
+   -------------------------------------------- */
+
+/* Caída desde arriba */
+@keyframes fallFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-80px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Deslizamiento desde izquierda */
+@keyframes slideFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-80px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Deslizamiento desde derecha */
+@keyframes slideFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(80px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Fade in hacia arriba */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade in simple */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Zoom suave */
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* --------------------------------------------
+   CLASES UTILITARIAS (Para usar en componentes)
+   -------------------------------------------- */
+
+/* Animaciones de entrada */
+.animate-fall {
+  animation: fallFromTop 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animate-slide-left {
+  animation: slideFromLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animate-slide-right {
+  animation: slideFromRight 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animate-fade-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-fade {
+  animation: fadeIn 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-zoom {
+  animation: zoomIn 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+/* Variantes con delay */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+.delay-700 { animation-delay: 0.7s; }
+.delay-800 { animation-delay: 0.8s; }
+.delay-900 { animation-delay: 0.9s; }
+.delay-1000 { animation-delay: 1s; }
+
+/* Variantes con duración diferente */
+.duration-fast { animation-duration: 0.4s; }
+.duration-normal { animation-duration: 0.8s; }
+.duration-slow { animation-duration: 1.2s; }
+
+/* --------------------------------------------
+   UTILIDADES PARA SCROLL (opcional)
+   -------------------------------------------- */
+
+/* Clase base para elementos que animan al hacer scroll */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --------------------------------------------
+   MEDIA QUERIES (Ajustes para móvil)
+   -------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fall,
+  .animate-slide-left,
+  .animate-slide-right,
+  .animate-fade-up,
+  .animate-fade,
+  .animate-zoom {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
