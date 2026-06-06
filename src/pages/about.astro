@@ -8,6 +8,18 @@ import Button from "../components/button.astro"
   description="Meet Montero Maintenance. Years of experience in professional cleaning. Quality, trust, and personalized service.">
   
   <style>
+    /* Animación del Hero: cae desde arriba */
+    @keyframes fallFromTop {
+      0% {
+        opacity: 0;
+        transform: translateY(-80px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     /* Animación desde la izquierda */
     @keyframes slideFromLeft {
       0% {
@@ -32,16 +44,7 @@ import Button from "../components/button.astro"
       }
     }
 
-    /* Clases de animación */
-    .animate-slide-left {
-      animation: slideFromLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-    }
-
-    .animate-slide-right {
-      animation: slideFromRight 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-    }
-
-    /* Opcional: animación para los iconos (fade in con delay) */
+    /* Animación para los iconos (fade in up) */
     @keyframes fadeInUp {
       0% {
         opacity: 0;
@@ -51,6 +54,19 @@ import Button from "../components/button.astro"
         opacity: 1;
         transform: translateY(0);
       }
+    }
+
+    /* Clases de animación */
+    .animate-fall {
+      animation: fallFromTop 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    }
+
+    .animate-slide-left {
+      animation: slideFromLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    }
+
+    .animate-slide-right {
+      animation: slideFromRight 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
     }
 
     .animate-icons {
@@ -65,10 +81,10 @@ import Button from "../components/button.astro"
 
   <Header />
   
-  <!-- Sección Hero de About -->
+  <!-- Sección Hero de About - ANIMADO DESDE ARRIBA -->
   <section class="pt-32 pb-16 bg-gradient-to-br from-white via-[#FAF0E6] to-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center">
+      <div class="text-center animate-fall">
         <span class="text-[#6B7280] font-semibold text-sm uppercase tracking-wide">About Us</span>
         <h1 class="text-4xl md:text-6xl font-bold text-[#1A1A1A] mt-2">Montero Maintenance</h1>
         <div class="w-20 h-0.5 bg-[#2bae1a] mx-auto mt-4 mb-6"></div>
