@@ -1,49 +1,121 @@
----
-// Hero para Montero Maintenance LLC
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Montero Maintenance LLC</title>
+  
+  <style>
+    /* Reset y estilos base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<section id="home" class="pt-32 pb-20 bg-gradient-to-br from-white via-[#FAF0E6] to-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid md:grid-cols-2 gap-12 items-center">
-      
-      <!-- Texto -->
-      <div>
-        <div class="inline-block mb-4">
-          <div class="w-12 h-0.5 bg-[#D2B48C]"></div>
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    /* Animación de caída desde arriba */
+    @keyframes fallFromTop {
+      0% {
+        opacity: 0;
+        transform: translateY(-100px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Aplica la animación al contenedor del texto */
+    .hero-text-animation {
+      animation: fallFromTop 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    }
+
+    /* Opcional: efecto sutil para las imágenes (fade in) */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.98);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .hero-image-animation {
+      animation: fadeIn 0.6s ease-out 0.3s forwards;
+      opacity: 0;
+    }
+
+    /* Pequeño delay para la segunda fila de imágenes */
+    .hero-image-animation-delay {
+      animation: fadeIn 0.6s ease-out 0.5s forwards;
+      opacity: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero section -->
+  <section id="home" class="pt-32 pb-20 bg-gradient-to-br from-white via-[#FAF0E6] to-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        
+        <!-- Texto con animación de caída -->
+        <div class="hero-text-animation">
+          <div class="inline-block mb-4">
+            <div class="w-12 h-0.5 bg-[#D2B48C]"></div>
+          </div>
+          
+          <h1 class="text-5xl md:text-6xl font-bold text-[#1A1A1A] leading-tight mb-6">
+            Montero
+            <span class="text-[#6B7280]">Maintenance</span>
+            <span class="text-sm block text-[#9CA3AF] font-normal mt-1">LLC</span>
+          </h1>
+          
+          <p class="text-lg text-[#4B5563] mb-6 leading-relaxed">
+            Year-round property maintenance experts offering professional power washing, residential and commercial cleaning, expert lawn care, and reliable snow removal — keeping your property safe, beautiful, and well-maintained in every season.
+          </p>
         </div>
         
-        <h1 class="text-5xl md:text-6xl font-bold text-[#1A1A1A] leading-tight mb-6">
-          Montero
-          <span class="text-[#6B7280]">Maintenance</span>
-          <span class="text-sm block text-[#9CA3AF] font-normal mt-1">LLC</span>
-        </h1>
-        
-        <p class="text-lg text-[#4B5563] mb-6 leading-relaxed">
-          Year-round property maintenance experts offering professional power washing, residential and commercial cleaning, expert lawn care, and reliable snow removal — keeping your property safe, beautiful, and well-maintained in every season.
-        </p>
-      </div>
-      
-      <!-- Imagen -->
-      <div class="space-y-4">
-        <img 
-          src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600" 
-          alt="Property maintenance" 
-          class="rounded-2xl shadow-2xl w-full h-64 object-cover"
-        />
-        <div class="grid grid-cols-2 gap-4">
+        <!-- Imágenes con fade in -->
+        <div class="space-y-4">
           <img 
-            src="https://images.unsplash.com/photo-1596436889106-be35e843f974?w=300" 
-            alt="Lawn care" 
-            class="rounded-xl shadow-md w-full h-32 object-cover"
+            src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600" 
+            alt="Property maintenance" 
+            class="hero-image-animation rounded-2xl shadow-2xl w-full h-64 object-cover"
           />
-          <img 
-            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=300" 
-            alt="Cleaning" 
-            class="rounded-xl shadow-md w-full h-32 object-cover"
-          />
+          <div class="grid grid-cols-2 gap-4">
+            <img 
+              src="https://images.unsplash.com/photo-1596436889106-be35e843f974?w=300" 
+              alt="Lawn care" 
+              class="hero-image-animation-delay rounded-xl shadow-md w-full h-32 object-cover"
+            />
+            <img 
+              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=300" 
+              alt="Cleaning" 
+              class="hero-image-animation-delay rounded-xl shadow-md w-full h-32 object-cover"
+            />
+          </div>
         </div>
+        
       </div>
-      
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- Tailwind CSS CDN (opcional, si quieres mantener las clases originales) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Pequeño ajuste para que Tailwind no sobrescriba las animaciones -->
+  <script>
+    // Esto asegura que las animaciones se ejecuten incluso si hay algún conflicto
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('✅ Hero section loaded with "fall from top" animation');
+    });
+  </script>
+</body>
+</html>
