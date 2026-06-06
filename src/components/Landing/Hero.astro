@@ -5,19 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Montero Maintenance LLC</title>
   
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Solo la animación necesaria -->
   <style>
-    /* Reset y estilos base */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    }
-
-    /* Animación de caída desde arriba */
     @keyframes fallFromTop {
       0% {
         opacity: 0;
@@ -29,44 +21,19 @@
       }
     }
 
-    /* Aplica la animación al contenedor del texto */
-    .hero-text-animation {
+    .animate-fall {
       animation: fallFromTop 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-    }
-
-    /* Opcional: efecto sutil para las imágenes (fade in) */
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: scale(0.98);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
-    .hero-image-animation {
-      animation: fadeIn 0.6s ease-out 0.3s forwards;
-      opacity: 0;
-    }
-
-    /* Pequeño delay para la segunda fila de imágenes */
-    .hero-image-animation-delay {
-      animation: fadeIn 0.6s ease-out 0.5s forwards;
-      opacity: 0;
     }
   </style>
 </head>
 <body>
 
-  <!-- Hero section -->
   <section id="home" class="pt-32 pb-20 bg-gradient-to-br from-white via-[#FAF0E6] to-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid md:grid-cols-2 gap-12 items-center">
         
-        <!-- Texto con animación de caída -->
-        <div class="hero-text-animation">
+        <!-- Texto: solo agregas la clase "animate-fall" -->
+        <div class="animate-fall">
           <div class="inline-block mb-4">
             <div class="w-12 h-0.5 bg-[#D2B48C]"></div>
           </div>
@@ -82,23 +49,23 @@
           </p>
         </div>
         
-        <!-- Imágenes con fade in -->
+        <!-- Imágenes sin animación extra (más limpio) -->
         <div class="space-y-4">
           <img 
             src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600" 
             alt="Property maintenance" 
-            class="hero-image-animation rounded-2xl shadow-2xl w-full h-64 object-cover"
+            class="rounded-2xl shadow-2xl w-full h-64 object-cover"
           />
           <div class="grid grid-cols-2 gap-4">
             <img 
               src="https://images.unsplash.com/photo-1596436889106-be35e843f974?w=300" 
               alt="Lawn care" 
-              class="hero-image-animation-delay rounded-xl shadow-md w-full h-32 object-cover"
+              class="rounded-xl shadow-md w-full h-32 object-cover"
             />
             <img 
               src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=300" 
               alt="Cleaning" 
-              class="hero-image-animation-delay rounded-xl shadow-md w-full h-32 object-cover"
+              class="rounded-xl shadow-md w-full h-32 object-cover"
             />
           </div>
         </div>
@@ -107,15 +74,5 @@
     </div>
   </section>
 
-  <!-- Tailwind CSS CDN (opcional, si quieres mantener las clases originales) -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Pequeño ajuste para que Tailwind no sobrescriba las animaciones -->
-  <script>
-    // Esto asegura que las animaciones se ejecuten incluso si hay algún conflicto
-    document.addEventListener('DOMContentLoaded', function() {
-      console.log('✅ Hero section loaded with "fall from top" animation');
-    });
-  </script>
 </body>
 </html>
